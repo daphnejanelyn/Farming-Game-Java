@@ -32,7 +32,7 @@ public class FarmView extends JFrame {
         // declare new subpanels within toolupgradePanel
         JPanel toolPanel = new JPanel();
         JPanel upgradePanel = new JPanel();
-        toolPanel.setLayout(new GridLayout(6, 1));
+        toolPanel.setLayout(new GridLayout(10, 1));
         JLabel tool = new JLabel("Tools");
         JLabel upgrade = new JLabel("Farmer Upgrade");
 
