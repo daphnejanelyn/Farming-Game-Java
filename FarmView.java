@@ -1,24 +1,18 @@
-import java.awt.Dimension;
-import java.awt.Color;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import java.awt.*;
+import javax.swing.*;
 
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+public class FarmView extends JFrame {
 
-public class View {
-    public static void main(String[] args) {
-        // setting frame for entire window
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1650, 1080);
-        frame.setResizable(false);
-        frame.setLayout(new BorderLayout());
+    public FarmView() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(1650, 1080);
+        this.setResizable(false);
+        this.setLayout(new BorderLayout());
+        init();
+        this.setVisible(true);
+    }
 
+    private void init() {
         // set up 5 panels
         JPanel titlePanel = new JPanel(); // TITLE and PROGRESS BAR
         JPanel mainPanel = new JPanel(); // FARM TILES
@@ -116,12 +110,12 @@ public class View {
         mainPanel.setPreferredSize(new Dimension(1450, 930));
 
         // set placement for each panel
-        frame.add(titlePanel, BorderLayout.NORTH);
-        frame.add(mainPanel, BorderLayout.CENTER);
-        frame.add(seedPanel, BorderLayout.EAST);
-        frame.add(toolupgradePanel, BorderLayout.WEST);
-        frame.add(accessoryPanel, BorderLayout.SOUTH);
+        this.add(titlePanel, BorderLayout.NORTH);
+        this.add(mainPanel, BorderLayout.CENTER);
+        this.add(seedPanel, BorderLayout.EAST);
+        this.add(toolupgradePanel, BorderLayout.WEST);
+        this.add(accessoryPanel, BorderLayout.SOUTH);
 
-        frame.setVisible(true);
     }
+
 }
