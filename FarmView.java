@@ -183,10 +183,10 @@ public class FarmView extends JFrame {
         seedPanel.add(apple);
 
         /* ----- subpanels for main panel ----- */
-        mainPanel.setLayout(new GridLayout(5, 10));
+        mainPanel.setLayout(new GridBagLayout());
 
         // adding border to tiles
-
+        mainPanel.setBackground(new Color(0X9BC73C));
         for (int i = 0; i < (5 * 10); i++) {
             JLabel label = new JLabel();
             label.setBorder(BorderFactory.createLineBorder(Color.WHITE));
@@ -246,9 +246,9 @@ public class FarmView extends JFrame {
         // set dimension for each panel
         titlePanel.setPreferredSize(new Dimension(1650, 50));
         accessoryPanel.setPreferredSize(new Dimension(1650, 100));
-        toolupgradePanel.setPreferredSize(new Dimension(150, 300));
-        seedPanel.setPreferredSize(new Dimension(150, 300));
-        mainPanel.setPreferredSize(new Dimension(1450, 930));
+        toolupgradePanel.setPreferredSize(new Dimension(250, 300));
+        seedPanel.setPreferredSize(new Dimension(250, 300));
+        mainPanel.setPreferredSize(new Dimension(1000, 1000));
 
         // set placement for each panel
         this.add(titlePanel, BorderLayout.NORTH);
