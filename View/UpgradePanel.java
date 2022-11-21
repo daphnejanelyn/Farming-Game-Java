@@ -9,11 +9,11 @@ public class UpgradePanel extends JPanel {
     private JButton legFarmer = new JButton("Legendary");
 
     public UpgradePanel() {
-        this.setLayout(new GridLayout(10, 1));
+        this.setLayout(new GridLayout(4, 1));
         this.setForeground(Color.WHITE);
-        this.setBackground(new Color(0x4B8673));
+        this.setBackground(new Color(0xA4BE7B));
         this.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        this.setPreferredSize(new Dimension(300, 275));
+        this.setPreferredSize(new Dimension(160, 275));
         init();
         addButtons();
         this.setVisible(true);

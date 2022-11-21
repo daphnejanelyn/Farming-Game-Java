@@ -7,10 +7,10 @@ public class MidPanelView extends JPanel {
     private Point locationTile = new Point();
 
     public MidPanelView() {
-        this.setLayout(new GridLayout(10, 5, 4, 4));
+        this.setLayout(new GridLayout(10, 5, 50, 4));
         this.setPreferredSize(new Dimension(730, 730));
-        this.setBackground(new Color(0xFFFFE0));
-        this.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        this.setBackground(new Color(0x5F8D4E));
+        this.setBorder(BorderFactory.createEmptyBorder(10, 50, 10, 50));
         this.setVisible(true);
 
         for (int row = 0; row < 10; row++) {

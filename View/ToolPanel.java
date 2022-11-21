@@ -12,10 +12,10 @@ public class ToolPanel extends JPanel {
     private JButton pickaxe = new JButton("Pickaxe");
 
     public ToolPanel() {
-        this.setLayout(new GridLayout(10, 1));
-        this.setBackground(new Color(0x4B8673));
+        this.setLayout(new GridLayout(6, 1));
+        this.setBackground(new Color(0xA4BE7B));
         this.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        this.setPreferredSize(new Dimension(300, 275));
+        this.setPreferredSize(new Dimension(160, 300));
         init();
         addButtons();
         this.setVisible(true);

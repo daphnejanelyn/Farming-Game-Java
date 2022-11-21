@@ -6,7 +6,7 @@ import java.awt.*;
 public class AccessoryPanel extends JPanel {
 
     public AccessoryPanel() {
-        this.setBackground(new Color(0xF5DF99));
+        this.setBackground(new Color(0x285430));
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(1000, 100));
         init();
@@ -14,13 +14,16 @@ public class AccessoryPanel extends JPanel {
     }
 
     private void init() {
+
         // declare new subpanels within toolupgradePanel
         JPanel objectCoinsPanel = new JPanel();
-        objectCoinsPanel.setBackground(new Color(0xF5DF99));
+        objectCoinsPanel.setBackground(new Color(0x285430));
+
         JPanel farmerXPnLevelPanel = new JPanel();
-        farmerXPnLevelPanel.setBackground(new Color(0xF5DF99));
+        farmerXPnLevelPanel.setBackground(new Color(0x285430));
+
         JPanel dayPanel = new JPanel();
-        dayPanel.setBackground(new Color(0xF5DF99));
+        dayPanel.setBackground(new Color(0x285430));
 
         // declare title labels*/
         JLabel objectCoins = new JLabel("Object Coins");
@@ -29,33 +32,33 @@ public class AccessoryPanel extends JPanel {
         JLabel day = new JLabel("Day");
 
         /* Set design attributes for object coins */
-        objectCoins.setForeground(new Color(0X425F57));
+        objectCoins.setForeground(new Color(0XFBFACD));
         objectCoins.setFont(new Font("Google Sans", Font.BOLD, 15));
         objectCoins.setVerticalAlignment(JLabel.CENTER);
         objectCoins.setHorizontalAlignment(JLabel.CENTER);
 
         /* Set design attributes for farmer level */
-        farmerLevel.setForeground(new Color(0X425F57));
+        farmerLevel.setForeground(new Color(0XFBFACD));
         farmerLevel.setFont(new Font("Google Sans", Font.BOLD, 15));
         farmerLevel.setVerticalAlignment(JLabel.CENTER);
         farmerLevel.setHorizontalAlignment(JLabel.LEFT);
 
         /* Set design attributes for farmer xp */
-        farmerXP.setForeground(new Color(0X425F57));
+        farmerXP.setForeground(new Color(0XFBFACD));
         farmerXP.setFont(new Font("Google Sans", Font.BOLD, 15));
         farmerXP.setVerticalAlignment(JLabel.CENTER);
         farmerXP.setHorizontalAlignment(JLabel.RIGHT);
 
         /* Set design attributes for day */
-        day.setForeground(new Color(0X425F57));
+        day.setForeground(new Color(0XFBFACD));
         day.setFont(new Font("Google Sans", Font.BOLD, 15));
         day.setVerticalAlignment(JLabel.CENTER);
         day.setHorizontalAlignment(JLabel.CENTER);
 
         /* Set dimensions for all subpanels */
-        objectCoinsPanel.setPreferredSize(new Dimension(550, 50));
-        farmerXPnLevelPanel.setPreferredSize(new Dimension(550, 50));
-        dayPanel.setPreferredSize(new Dimension(550, 50));
+        objectCoinsPanel.setPreferredSize(new Dimension(300, 50));
+        farmerXPnLevelPanel.setPreferredSize(new Dimension(300, 50));
+        dayPanel.setPreferredSize(new Dimension(300, 50));
 
         objectCoinsPanel.add(objectCoins);
         farmerXPnLevelPanel.add(farmerLevel);
