@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class TileView extends JButton {
     private Point locationTile;
@@ -13,9 +14,17 @@ public class TileView extends JButton {
         this.setVisible(true);
     }
 
-    private void assignView(Point temp) {
+    public void assignView(Point temp) {
         this.setBackground(new Color(0x7F462C));
 
+    }
+
+    public void setActionListener(ActionListener listener) {
+        this.addActionListener(actionListener);
+    }
+
+    public void updateView(Point temp) {
+        // change color if it is plowed
     }
 
 }

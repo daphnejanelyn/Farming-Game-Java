@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class ToolPanel extends JPanel {
 
@@ -10,6 +11,7 @@ public class ToolPanel extends JPanel {
     private JButton fertilizer = new JButton("Fertilizer");
     private JButton shovel = new JButton("Shovel");
     private JButton pickaxe = new JButton("Pickaxe");
+    private JButton harvest = new JButton("Harvest");
 
     public ToolPanel() {
         this.setLayout(new GridLayout(6, 1));
@@ -63,13 +65,71 @@ public class ToolPanel extends JPanel {
         pickaxe.setHorizontalAlignment(JButton.CENTER);
         pickaxe.setFont(new Font("Google Sans", Font.BOLD, 11));
 
+        harvest.setFocusable(false); // remove a border around the text
+        harvest.setSize(150, 50);
+        harvest.setHorizontalAlignment(JButton.CENTER);
+        harvest.setFont(new Font("Google Sans", Font.BOLD, 11));
+
         // add buttons to Tool Panel
         this.add(plow);
         this.add(water);
         this.add(fertilizer);
         this.add(shovel);
         this.add(pickaxe);
+        this.add(harvest);
 
+    }
+
+    public JButton getPlow() {
+        return plow;
+    }
+
+    public JButton getWater() {
+        return water;
+    }
+
+    public JButton getFertilizer() {
+        return fertilizer;
+    }
+
+    public JButton getShovel() {
+        return shovel;
+    }
+
+    public JButton getPickAxe() {
+        return pickaxe;
+    }
+
+    public JButton getHarvest() {
+        return harvest;
+    }
+    // public void setActionListener(ActionListener listener) {
+    // plow.addActionListener(listener);
+    // water.addActionListener(listener);
+    // shovel.addActionListener(listener);
+    // fertilizer.addActionListener(listener);
+    // pickaxe.addActionListener(listener);
+
+    // }
+
+    public void setPlowEnabled(boolean enabled) {
+        plow.setEnabled(enabled);
+    }
+
+    public void setWaterEnabled(boolean enabled) {
+        water.setEnabled(enabled);
+    }
+
+    public void setShovelEnabled(boolean enabled) {
+        shovel.setEnabled(enabled);
+    }
+
+    public void setFertilizerEnabled(boolean enabled) {
+        fertilizer.setEnabled(enabled);
+    }
+
+    public void setPickAxeEnabled(boolean enabled) {
+        pickaxe.setEnabled(enabled);
     }
 
 }

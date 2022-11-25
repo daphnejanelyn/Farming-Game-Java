@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class UpgradePanel extends JPanel {
     private JButton regFarmer = new JButton("Registered");
@@ -52,6 +53,36 @@ public class UpgradePanel extends JPanel {
         this.add(regFarmer);
         this.add(disFarmer);
         this.add(legFarmer);
+    }
+
+    public JButton getReg() {
+        return regFarmer;
+    }
+
+    public JButton getDis() {
+        return disFarmer;
+    }
+
+    public JButton getLeg() {
+        return legFarmer;
+    }
+
+    public void setActionListener(ActionListener listener) {
+        regFarmer.addActionListener(listener);
+        disFarmer.addActionListener(listener);
+        legFarmer.addActionListener(listener);
+    }
+
+    public void setRegEnabled(boolean enabled) {
+        regFarmer.setEnabled(enabled);
+    }
+
+    public void setDisEnabled(boolean enabled) {
+        disFarmer.setEnabled(enabled);
+    }
+
+    public void setLegEnabled(boolean enabled) {
+        legFarmer.setEnabled(enabled);
     }
 
 }

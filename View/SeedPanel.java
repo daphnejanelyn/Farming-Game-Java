@@ -8,6 +8,15 @@ import java.io.IOException;
 
 public class SeedPanel extends JPanel {
 
+    private JButton turnip = new JButton();
+    private JButton carrot = new JButton();
+    private JButton potato = new JButton();
+    private JButton rose = new JButton();
+    private JButton sunflower = new JButton();
+    private JButton tulips = new JButton();
+    private JButton mango = new JButton();
+    private JButton apple = new JButton();
+
     BufferedImage turnipImage;
     BufferedImage carrotImage;
     BufferedImage potatoImage;
@@ -51,7 +60,6 @@ public class SeedPanel extends JPanel {
             e.printStackTrace();
         }
 
-        JButton turnip = new JButton();
         turnip.setIcon(new ImageIcon(turnipImage));
         turnip.setBorder(BorderFactory.createEmptyBorder());
         turnip.setContentAreaFilled(false);
@@ -59,7 +67,6 @@ public class SeedPanel extends JPanel {
         turnip.setSize(150, 50);
         turnip.setHorizontalAlignment(JButton.CENTER);
 
-        JButton carrot = new JButton();
         carrot.setIcon(new ImageIcon(carrotImage));
         carrot.setBorder(BorderFactory.createEmptyBorder());
         carrot.setContentAreaFilled(false);
@@ -67,7 +74,6 @@ public class SeedPanel extends JPanel {
         carrot.setSize(150, 50);
         carrot.setHorizontalAlignment(JButton.CENTER);
 
-        JButton potato = new JButton();
         potato.setIcon(new ImageIcon(potatoImage));
         potato.setBorder(BorderFactory.createEmptyBorder());
         potato.setContentAreaFilled(false);
@@ -75,7 +81,6 @@ public class SeedPanel extends JPanel {
         potato.setSize(150, 50);
         potato.setHorizontalAlignment(JButton.CENTER);
 
-        JButton rose = new JButton();
         rose.setIcon(new ImageIcon(roseImage));
         rose.setBorder(BorderFactory.createEmptyBorder());
         rose.setContentAreaFilled(false);
@@ -83,7 +88,6 @@ public class SeedPanel extends JPanel {
         rose.setSize(150, 50);
         rose.setHorizontalAlignment(JButton.CENTER);
 
-        JButton sunflower = new JButton();
         sunflower.setIcon(new ImageIcon(sunflowerImage));
         sunflower.setBorder(BorderFactory.createEmptyBorder());
         sunflower.setContentAreaFilled(false);
@@ -91,7 +95,6 @@ public class SeedPanel extends JPanel {
         sunflower.setSize(150, 50);
         sunflower.setHorizontalAlignment(JButton.CENTER);
 
-        JButton tulips = new JButton();
         tulips.setIcon(new ImageIcon(tulipImage));
         tulips.setBorder(BorderFactory.createEmptyBorder());
         tulips.setContentAreaFilled(false);
@@ -99,7 +102,6 @@ public class SeedPanel extends JPanel {
         tulips.setSize(150, 50);
         tulips.setHorizontalAlignment(JButton.CENTER);
 
-        JButton mango = new JButton();
         mango.setIcon(new ImageIcon(mangoImage));
         mango.setBorder(BorderFactory.createEmptyBorder());
         mango.setContentAreaFilled(false);
@@ -107,7 +109,6 @@ public class SeedPanel extends JPanel {
         mango.setSize(150, 50);
         mango.setHorizontalAlignment(JButton.CENTER);
 
-        JButton apple = new JButton();
         apple.setIcon(new ImageIcon(appleImage));
         apple.setBorder(BorderFactory.createEmptyBorder());
         apple.setContentAreaFilled(false);
@@ -124,6 +125,49 @@ public class SeedPanel extends JPanel {
         this.add(mango);
         this.add(apple);
 
+    }
+
+    public JButton getTurnip() {
+        return turnip;
+    }
+
+    public JButton getCarrot() {
+        return carrot;
+    }
+
+    public JButton getPotato() {
+        return potato;
+    }
+
+    public JButton getRose() {
+        return rose;
+    }
+
+    public JButton getSunflower() {
+        return sunflower;
+    }
+
+    public JButton getTulips() {
+        return tulips;
+    }
+
+    public JButton getMango() {
+        return mango;
+    }
+
+    public JButton getApple() {
+        return apple;
+    }
+
+    public void setSeedsEnabled(boolean enabled) {
+        turnip.setEnabled(enabled);
+        carrot.setEnabled(enabled);
+        potato.setEnabled(enabled);
+        rose.setEnabled(enabled);
+        sunflower.setEnabled(enabled);
+        tulips.setEnabled(enabled);
+        mango.setEnabled(enabled);
+        apple.setEnabled(enabled);
     }
 
 }
