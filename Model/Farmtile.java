@@ -1,7 +1,9 @@
 package Model;
 
-public class Farmtile {
+import Model.Crops.*;
 
+public class Farmtile {
+    private Crop cropInTile;
     private boolean plowed = false;
     private boolean planted = false;
     private boolean watered = false;
@@ -203,6 +205,39 @@ public class Farmtile {
     public boolean isRockthere() {
         /* insert method for rocks */
         return true;
+    }
+
+    public void storeCropinTile(Crop crop) {
+        if (crop instanceof Turnip) {
+            this.cropInTile = new Turnip("Turnip", "Root Crop");
+        } else if (crop instanceof Carrot) {
+            this.cropInTile = new Carrot("Carrot", "Root Crop");
+        } else if (crop instanceof Potato) {
+            this.cropInTile = new Potato("Potato", "Root Crop");
+        } else if (crop instanceof Rose) {
+            this.cropInTile = new Rose("Rose", "Flower");
+        } else if (crop instanceof Sunflower) {
+            this.cropInTile = new Sunflower("Sunflower", "Flower");
+        } else if (crop instanceof Tulip) {
+            this.cropInTile = new Tulip("Tulip", "Flower");
+        } else if (crop instanceof Mango) {
+            this.cropInTile = new Mango("Mango", "Fruit Tree");
+        } else if (crop instanceof Apple) {
+            this.cropInTile = new Apple("Apple", "Fruit Tree");
+        }
+    }
+
+    /*
+     * method: storeCropinTile
+     * 1. method = identifyCropinTile (update view: kung anong klaseng plant yung
+     * ilalagay nya sa tile)
+     * 2. crop: class = cropName
+     * 3. identifyCropinTile (Crop crop)
+     * 4. if (crop instance of Turnip
+     */
+
+    public Crop identifyCropinTile() {
+        return this.cropInTile;
     }
 
 }
