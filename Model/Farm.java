@@ -10,4 +10,5 @@ public class Farm {
         this.numberofTilesCol = 5;
         this.numberofTilesRow = 10;
     }
+
 }

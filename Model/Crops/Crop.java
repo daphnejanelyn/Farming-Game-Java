@@ -7,22 +7,23 @@ public abstract class Crop {
     private int harvestTime;
     private double seedCost;
     private double basePrice;
-    private int expGained;
+    private double expGained;
 
     private int productsProduced;
     private int cropMinProduce;
     private int cropMaxProduce;
-    private int waterMin;
-    private int waterLimit;
-    private int fertilizerMin;
-    private int fertilizerLimit;
 
-    private int waterCount = 0;
-    private int fertilizerCount = 0;
+    protected int waterMin;
+    protected int waterLimit;
+    protected int fertilizerMin;
+    protected int fertilizerLimit;
 
-    public Crop(String name, String cropType, int harvestTime, double seedCost, double basePrice, int expGained,
-            int productsProduced, int cropMinProduce, int cropMaxProduce, int waterMin, int waterLimit,
-            int fertilizerMin, int fertilizerLimit, int waterCount, int fertilizerCount) {
+    protected int waterCount = 0;
+    protected int fertilizerCount = 0;
+
+    public Crop(String name, String cropType, int harvestTime, double seedCost, double basePrice, double expGained,
+            int cropMinProduce, int cropMaxProduce, int waterMin, int waterLimit,
+            int fertilizerMin, int fertilizerLimit) {
 
         this.name = name;
         this.cropType = cropType;
@@ -31,7 +32,6 @@ public abstract class Crop {
         this.basePrice = basePrice;
         this.expGained = expGained;
 
-        this.productsProduced = productsProduced;
         this.cropMinProduce = cropMinProduce;
         this.cropMaxProduce = cropMaxProduce;
         this.waterMin = waterMin;
@@ -39,8 +39,6 @@ public abstract class Crop {
         this.fertilizerMin = fertilizerMin;
         this.fertilizerLimit = fertilizerLimit;
 
-        this.waterCount = waterCount;
-        this.fertilizerCount = fertilizerCount;
     }
 
     public String getName() {
@@ -63,7 +61,7 @@ public abstract class Crop {
         return this.basePrice;
     }
 
-    public int getExpGained() {
+    public double getExpGained() {
         return this.expGained;
     }
 
@@ -103,12 +101,12 @@ public abstract class Crop {
         return this.fertilizerCount;
     }
 
-    public abstract void updateWaterCount();
+    abstract public void updateWaterCount();
 
-    public abstract void updateFertilizerCount();
+    abstract public void updateFertilizerCount();
 
-    public abstract void updateWaterLimit();
+    abstract public void updateFertilizerLimit(int increase);
 
-    public abstract void updateFertilizerLimit();
+    abstract public void updateWaterLimit(int increase);
 
 }
