@@ -2,12 +2,21 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.*;
+import javax.imageio.*;
+import java.io.IOException;
+import java.awt.event.ActionListener;
 import java.awt.event.ActionListener;
 
 public class UpgradePanel extends JPanel {
-    private JButton regFarmer = new JButton("Registered");
-    private JButton disFarmer = new JButton("Distinguished");
-    private JButton legFarmer = new JButton("Legendary");
+
+    private JButton regFarmer = new JButton();
+    private JButton disFarmer = new JButton();
+    private JButton legFarmer = new JButton();
+
+    BufferedImage regImage;
+    BufferedImage disImage;
+    BufferedImage legImage;
 
     public UpgradePanel() {
         this.setLayout(new GridLayout(4, 1));
@@ -32,19 +41,39 @@ public class UpgradePanel extends JPanel {
 
     private void addButtons() {
 
+        try {
+
+            regImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/15.png"));
+            disImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/16.png"));
+            legImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/17.png"));
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         /* Registered Farmer */
+        regFarmer.setIcon(new ImageIcon(regImage));
+        regFarmer.setBorder(BorderFactory.createEmptyBorder());
+        regFarmer.setContentAreaFilled(false);
         regFarmer.setFocusable(false);
         regFarmer.setSize(150, 50);
         regFarmer.setHorizontalAlignment(JButton.CENTER);
         regFarmer.setFont(new Font("Google Sans", Font.BOLD, 11));
 
         /* Distinguished Farmer */
+        disFarmer.setIcon(new ImageIcon(disImage));
+        disFarmer.setBorder(BorderFactory.createEmptyBorder());
+        disFarmer.setContentAreaFilled(false);
         disFarmer.setFocusable(false);
         disFarmer.setSize(150, 50);
         disFarmer.setHorizontalAlignment(JButton.CENTER);
         disFarmer.setFont(new Font("Google Sans", Font.BOLD, 9));
 
         /* Legendary Farmer */
+        legFarmer.setIcon(new ImageIcon(legImage));
+        legFarmer.setBorder(BorderFactory.createEmptyBorder());
+        legFarmer.setContentAreaFilled(false);
         legFarmer.setFocusable(false);
         legFarmer.setSize(150, 50);
         legFarmer.setHorizontalAlignment(JButton.CENTER);
