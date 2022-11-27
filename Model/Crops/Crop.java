@@ -101,6 +101,10 @@ public abstract class Crop {
         return this.fertilizerCount;
     }
 
+    abstract public double computeSellPrice(double basePrice, int productsProduced);
+
+    abstract public int generateProduce();
+
     abstract public void updateWaterCount();
 
     abstract public void updateFertilizerCount();
@@ -108,5 +112,4 @@ public abstract class Crop {
     abstract public void updateFertilizerLimit(int increase);
 
     abstract public void updateWaterLimit(int increase);
-
 }

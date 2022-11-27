@@ -6,6 +6,12 @@ public class Mango extends Crop {
     }
 
     @Override
+    public void generateProduce() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
     public void updateWaterCount() {
         // TODO Auto-generated method stub
 

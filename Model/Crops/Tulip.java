@@ -1,8 +1,26 @@
 package Model.Crops;
 
-public class Tulip extends Crop {
+public class Tulip extends Crop implements Flower {
     public Tulip(String cropName, String cropType) {
         super("Tulip", "Flower", 2, 10, 9, 5, 1, 1, 2, 3, 0, 1);
+    }
+
+    @Override
+    public int generateProduce() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public double computeSellPrice(double basePrice, int productsProduced) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public double addFlowerBonus() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     @Override

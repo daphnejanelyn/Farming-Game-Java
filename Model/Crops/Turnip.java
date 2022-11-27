@@ -7,6 +7,18 @@ public class Turnip extends Crop {
     }
 
     @Override
+    public int generateProduce() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public double computeSellPrice(double basePrice, int productsProduced) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
     public void updateWaterCount() {
         // TODO Auto-generated method stub
 

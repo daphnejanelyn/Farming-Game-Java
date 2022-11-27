@@ -1,8 +1,22 @@
 package Model.Crops;
 
+import java.util.Random;
+
 public class Apple extends Crop {
     public Apple(String cropName, String cropType) {
         super("Apple", "Fruit Tree", 10, 200, 5, 25, 10, 15, 7, 7, 5, 5);
+    }
+
+    @Override
+    public int generateProduce() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public double computeSellPrice(double basePrice, int productsProduced) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     @Override
