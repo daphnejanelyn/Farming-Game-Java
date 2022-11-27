@@ -10,6 +10,9 @@ public class Farmer {
     private ArrayList<Crop> plantList;
     private Level level;
     private ObjectCoin amount;
+    private Farmtile tile;
+    private int tileIndex;
+    private Farm land = new Farm();
 
     private int bonusEarning = 0;
     private int costReduction = 0;
@@ -24,6 +27,17 @@ public class Farmer {
         this.plantList = new ArrayList<Crop>();
         this.level = new Level();
         this.amount = new ObjectCoin();
+    }
+
+    /* Tile the farmer is navigating */
+    public void assignTile(int tileClicked) {
+        this.tileIndex = tileClicked;
+        // need to get Tile itself from Farm
+        this.tile = land.getTile(tileClicked);
+    }
+
+    public int determineTile() {
+        return this.tileIndex;
     }
 
     public String getName() {

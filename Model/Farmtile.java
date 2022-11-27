@@ -3,6 +3,8 @@ package Model;
 import Model.Crops.*;
 
 public class Farmtile {
+
+    private int index;
     private Crop cropInTile;
     private boolean plowed = false;
     private boolean planted = false;
@@ -14,6 +16,14 @@ public class Farmtile {
 
     public Farmtile() {
 
+    }
+
+    public void setIndexperTile(int init) {
+        this.index = init;
+    }
+
+    public int getIndex() {
+        return this.index;
     }
 
     // add a method that identifies which crop is planted

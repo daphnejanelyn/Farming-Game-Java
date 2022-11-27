@@ -29,6 +29,15 @@ public class MainFrameView extends JFrame {
 
     }
 
+    public int getTileIndex(TileView tile) {
+        return tile.getIndex();
+
+    }
+
+    public void updateView(String status, int i) {
+        midPanelView.getTile(i).updateView(status);
+    }
+
     public void setActionListener(ActionListener listener) {
         // seeds init
         seedPanel.getTurnip().addActionListener(listener);

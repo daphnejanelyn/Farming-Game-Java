@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class MidPanelView extends JPanel {
     private Point locationTile = new Point();
-    private ArrayList<JButton> tileList = new ArrayList<>();
+    private ArrayList<TileView> tileList = new ArrayList<>();
 
     public MidPanelView() {
         this.setLayout(new GridLayout(5, 10, 4, 50));
@@ -15,23 +15,24 @@ public class MidPanelView extends JPanel {
         this.setBorder(BorderFactory.createEmptyBorder(45, 10, 30, 10));
         this.setVisible(true);
 
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 10; col++) {
-                locationTile.setLocation(row, col);
-                TileView tile = new TileView(locationTile);
-                tile.setText(String.format("Tile %d", (row + col) + 1));
-                this.tileList.add(tile);
-                this.add(tile);
-            }
+        for (int i = 0; i < 50; i++) {
+            TileView tile = new TileView();
+            tile.setText(String.format("    Tile %d", i));
+            tile.setIndex(i);
+            this.tileList.add(tile);
+            this.add(tile);
         }
     }
 
-    public void determineLocation() {
-        // determine the location based on the string
+    // public Point determineLocation(int index) {
+    // return this.tileList.get(index).getLocation();
+    // }
 
+    public TileView getTile(int index) {
+        return (TileView) this.tileList.get(index);
     }
 
-    public ArrayList<JButton> getPerTile() {
+    public ArrayList<TileView> getPerTile() {
         return this.tileList;
     }
 

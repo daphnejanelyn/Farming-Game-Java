@@ -2,29 +2,45 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class TileView extends JButton {
-    private Point locationTile;
+    private int index;
 
-    public TileView(Point temp) {
+    public TileView() {
         this.setLayout(new GridBagLayout());
         this.setPreferredSize(new Dimension(75, 75));
-        assignView(temp);
+        assignView();
         this.setVisible(true);
     }
 
-    public void assignView(Point temp) {
+    public void assignView() {
         this.setBackground(new Color(0x7F462C));
 
     }
 
-    public void setActionListener(ActionListener listener) {
-        this.addActionListener(actionListener);
+    public void setIndex(int init) {
+        this.index = init;
     }
 
-    public void updateView(Point temp) {
+    public int getIndex() {
+        return this.index;
+    }
+
+    /*
+     * public void setActionListener(ActionListener listener) {
+     * this.addActionListener(actionListener);
+     * }
+     */
+
+    // public void setLocation() {
+    // this.locationTile = point;
+    // }
+
+    public void updateView(String status) {
         // change color if it is plowed
+        if (status.equals("plowed")) {
+            this.setBackground(new Color(0x3a4c40));
+        }
     }
 
 }
