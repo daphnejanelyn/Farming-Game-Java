@@ -40,6 +40,8 @@ public class TileView extends JButton {
         // change color if it is plowed
         if (status.equals("plowed")) {
             this.setBackground(new Color(0x3a4c40));
+        } else if (status.equals("unplowed")) {
+            this.setBackground(new Color(0x7F462C));
         }
     }
 

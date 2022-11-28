@@ -133,6 +133,7 @@ public class Farmer {
         double finalHarvestPrice = tile.identifyCropinTile().computeSellPrice(basePrice, productsProduced);
         level.updateXP(tile.identifyCropinTile().getExpGained());
         amount.gainObjectCoin((finalHarvestPrice + this.bonusEarning) * productsProduced);
+        tile.updatePlowed(false);
     }
 
     public void updateDay() {
