@@ -6,9 +6,15 @@ public class Mango extends Crop {
     }
 
     @Override
-    public void generateProduce() {
+    public int generateProduce() {
         // TODO Auto-generated method stub
+        return 0;
+    }
 
+    @Override
+    public double computeSellPrice(double basePrice, int productsProduced) {
+        // TODO Auto-generated method stub
+        return 0;
     }
 
     @Override
