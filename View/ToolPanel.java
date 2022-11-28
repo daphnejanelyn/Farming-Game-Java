@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class ToolPanel extends JPanel {
 
-    private JButton plow = new JButton();
+    private JButton plow = new JButton("Plow");
     private JButton water = new JButton();
     private JButton fertilizer = new JButton();
     private JButton shovel = new JButton();
@@ -67,7 +67,8 @@ public class ToolPanel extends JPanel {
         plow.setFocusable(false); // remove a border around the text
         plow.setSize(150, 50);
         plow.setHorizontalAlignment(JButton.CENTER);
-        plow.setFont(new Font("Google Sans", Font.BOLD, 11));
+        plow.setFont(new Font("Google Sans", Font.BOLD, 1));
+        plow.setForeground(new Color(0xA4BE7B));
 
         /* Water Alignment */
         water.setIcon(new ImageIcon(waterImage));
