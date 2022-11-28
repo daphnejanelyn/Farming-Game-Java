@@ -38,6 +38,13 @@ public class MainFrameView extends JFrame {
         midPanelView.getTile(i).updateView(status);
     }
 
+    public void updateAccessoryStatus(double coins, double points, int level, int day) {
+        accessoryPanel.updateDay(day);
+        accessoryPanel.updateLevel(level);
+        accessoryPanel.updateObjectCoins(coins);
+        accessoryPanel.updateXP(points);
+    }
+
     public void setActionListener(ActionListener listener) {
         // seeds init
         seedPanel.getTurnip().addActionListener(listener);

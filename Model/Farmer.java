@@ -11,6 +11,7 @@ public class Farmer {
     private Level level;
     private ObjectCoin amount;
     private Farmtile tile;
+    private int day = 0;
     private int tileIndex;
     private Farm land = new Farm();
 
@@ -44,6 +45,10 @@ public class Farmer {
         return this.name;
     }
 
+    public int getDay() {
+        return this.day;
+    }
+
     public double getObjectCoin() {
         return this.amount.getObjectCoin();
     }
@@ -74,34 +79,34 @@ public class Farmer {
     }
 
     // for tools
-    public void plowTile(Farmtile tile) {
+    public void plowTile() {
         Plow plow = new Plow();
-        plow.useTool(tile, amount, level);
+        plow.useTool(this.tile, amount, level);
         tile.updatePlowed(true);
     }
 
-    public void waterTile(Farmtile tile) {
+    public void waterTile() {
         WateringCan water = new WateringCan();
-        water.useTool(tile, amount, level);
+        water.useTool(this.tile, amount, level);
         tile.updateWaterStatus(true);
 
     }
 
-    public void fertilizeTile(Farmtile tile) {
+    public void fertilizeTile() {
         Fertilizer fertilize = new Fertilizer();
-        fertilize.useTool(tile, amount, level);
+        fertilize.useTool(this.tile, amount, level);
         tile.updateFertilizerStatus(true);
     }
 
-    public void removeRock(Farmtile tile) {
+    public void removeRock() {
         Shovel shovel = new Shovel();
-        shovel.useTool(tile, amount, level);
+        shovel.useTool(this.tile, amount, level);
         tile.updateRockStatus(false);
     }
 
-    public void weedOutCrop(Farmtile tile) {
+    public void weedOutCrop() {
         Pickaxe pickaxe = new Pickaxe();
-        pickaxe.useTool(tile, amount, level);
+        pickaxe.useTool(this.tile, amount, level);
         tile.updatePlantedStatus(false);
         tile.updatePlowed(false);
 
@@ -121,4 +126,8 @@ public class Farmer {
     // tile.identifycropintile();
 
     // }
+
+    public void updateDay() {
+        this.day += 1;
+    }
 }

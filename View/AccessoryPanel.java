@@ -4,6 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AccessoryPanel extends JPanel {
+    private JPanel objectCoinsPanel = new JPanel();
+    private JPanel farmerXPnLevelPanel = new JPanel();
+    private JPanel dayPanel = new JPanel();
+    // declare title labels*/
+    private JLabel objectCoins = new JLabel("Object Coins: 100");
+    private JLabel farmerLevel = new JLabel("Level 0          ");
+    private JLabel farmerXP = new JLabel("XP: 0");
+    private JLabel day = new JLabel("Day 0");
 
     public AccessoryPanel() {
         this.setBackground(new Color(0x285430));
@@ -16,20 +24,11 @@ public class AccessoryPanel extends JPanel {
     private void init() {
 
         // declare new subpanels within toolupgradePanel
-        JPanel objectCoinsPanel = new JPanel();
         objectCoinsPanel.setBackground(new Color(0x285430));
 
-        JPanel farmerXPnLevelPanel = new JPanel();
         farmerXPnLevelPanel.setBackground(new Color(0x285430));
 
-        JPanel dayPanel = new JPanel();
         dayPanel.setBackground(new Color(0x285430));
-
-        // declare title labels*/
-        JLabel objectCoins = new JLabel("Object Coins");
-        JLabel farmerLevel = new JLabel("Level");
-        JLabel farmerXP = new JLabel("XP");
-        JLabel day = new JLabel("Day");
 
         /* Set design attributes for object coins */
         objectCoins.setForeground(new Color(0XFBFACD));
@@ -68,6 +67,22 @@ public class AccessoryPanel extends JPanel {
         this.add(objectCoinsPanel, BorderLayout.WEST);
         this.add(farmerXPnLevelPanel, BorderLayout.CENTER);
         this.add(dayPanel, BorderLayout.EAST);
+    }
+
+    public void updateDay(int day) {
+        this.day.setText("Day " + day);
+    }
+
+    public void updateObjectCoins(double coins) {
+        this.objectCoins.setText("Object Coins: " + coins);
+    }
+
+    public void updateXP(double xp) {
+        this.farmerXP.setText("XP: " + xp);
+    }
+
+    public void updateLevel(int level) {
+        this.farmerLevel.setText("Level " + level + "          ");
     }
 
 }

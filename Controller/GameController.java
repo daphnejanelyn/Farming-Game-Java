@@ -37,7 +37,13 @@ public class GameController implements ActionListener {
 
         if (e.getActionCommand().equals("Plow")) {
             int currIndex = player.determineTile();
+            player.plowTile();
             gui.updateView("plowed", currIndex);
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+        }
+        if (e.getActionCommand().equals("Turnip")) {
+            // buy and plant turnip seed
+            // update view of tile to turnip seed
         }
 
     }
