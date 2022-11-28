@@ -8,14 +8,14 @@ import java.io.IOException;
 
 public class SeedPanel extends JPanel {
 
-    private JButton turnip = new JButton();
-    private JButton carrot = new JButton();
-    private JButton potato = new JButton();
-    private JButton rose = new JButton();
-    private JButton sunflower = new JButton();
-    private JButton tulips = new JButton();
-    private JButton mango = new JButton();
-    private JButton apple = new JButton();
+    private JButton turnip = new JButton("Turnip");
+    private JButton carrot = new JButton("Carrot");
+    private JButton potato = new JButton("Potato");
+    private JButton rose = new JButton("Rose");
+    private JButton sunflower = new JButton("Sunflower");
+    private JButton tulips = new JButton("Tulip");
+    private JButton mango = new JButton("Mango");
+    private JButton apple = new JButton("Apple");
 
     BufferedImage turnipImage;
     BufferedImage carrotImage;

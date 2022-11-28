@@ -112,12 +112,12 @@ public class Farmer {
 
     }
 
-    public void buySeeds(Crop crop, Farmtile tile) {
+    public void buySeeds(Crop crop) {
         // crop
 
         tile.storeCropinTile(crop);
-        this.amount.loseObjectCoin((tile.identifyCropinTile()).getSeedCost());
-        this.level.updateXP(tile.identifyCropinTile().getExpGained());
+        this.amount.loseObjectCoin((this.tile.identifyCropinTile()).getSeedCost());
+        this.level.updateXP(this.tile.identifyCropinTile().getExpGained());
         this.level.determineLevel();
 
     }
@@ -126,6 +126,14 @@ public class Farmer {
     // tile.identifycropintile();
 
     // }
+
+    public void harvestCrop() {
+        double basePrice = tile.identifyCropinTile().getBasePrice();
+        int productsProduced = tile.identifyCropinTile().generateProduce();
+        double finalHarvestPrice = tile.identifyCropinTile().computeSellPrice(basePrice, productsProduced);
+        level.updateXP(tile.identifyCropinTile().getExpGained());
+        amount.gainObjectCoin((finalHarvestPrice + this.bonusEarning) * productsProduced);
+    }
 
     public void updateDay() {
         this.day += 1;

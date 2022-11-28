@@ -5,16 +5,16 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
 import java.io.IOException;
-import java.awt.event.ActionListener;
 
 public class ToolPanel extends JPanel {
 
     private JButton plow = new JButton("Plow");
-    private JButton water = new JButton();
-    private JButton fertilizer = new JButton();
-    private JButton shovel = new JButton();
-    private JButton pickaxe = new JButton();
-    private JButton harvest = new JButton();
+    private JButton water = new JButton("Water");
+    private JButton fertilizer = new JButton("Fertilizer");
+    private JButton shovel = new JButton("Shovel");
+    private JButton pickaxe = new JButton("PickAxe");
+    private JButton harvest = new JButton("Harvest");
+    // add JButton for proceeding to next day
 
     BufferedImage plowImage;
     BufferedImage waterImage;
@@ -77,7 +77,8 @@ public class ToolPanel extends JPanel {
         water.setFocusable(false); // remove a border around the text
         water.setSize(150, 50);
         water.setHorizontalAlignment(JButton.CENTER);
-        water.setFont(new Font("Google Sans", Font.BOLD, 11));
+        water.setFont(new Font("Google Sans", Font.BOLD, 1));
+        water.setForeground(new Color(0xA4BE7B));
 
         /* Fertilizer Alignment */
         fertilizer.setIcon(new ImageIcon(fertilizerImage));
@@ -86,7 +87,8 @@ public class ToolPanel extends JPanel {
         fertilizer.setFocusable(false); // remove a border around the text
         fertilizer.setSize(150, 50);
         fertilizer.setHorizontalAlignment(JButton.CENTER);
-        fertilizer.setFont(new Font("Google Sans", Font.BOLD, 11));
+        fertilizer.setFont(new Font("Google Sans", Font.BOLD, 1));
+        fertilizer.setForeground(new Color(0xA4BE7B));
 
         /* Shovel Alignment */
         shovel.setIcon(new ImageIcon(shovelImage));
@@ -95,7 +97,8 @@ public class ToolPanel extends JPanel {
         shovel.setFocusable(false); // remove a border around the text
         shovel.setSize(150, 50);
         shovel.setHorizontalAlignment(JButton.CENTER);
-        shovel.setFont(new Font("Google Sans", Font.BOLD, 11));
+        shovel.setFont(new Font("Google Sans", Font.BOLD, 1));
+        shovel.setForeground(new Color(0xA4BE7B));
 
         /* PickAxe Alignment */
         pickaxe.setIcon(new ImageIcon(pickaxeImage));
@@ -104,7 +107,8 @@ public class ToolPanel extends JPanel {
         pickaxe.setFocusable(false); // remove a border around the text
         pickaxe.setSize(150, 50);
         pickaxe.setHorizontalAlignment(JButton.CENTER);
-        pickaxe.setFont(new Font("Google Sans", Font.BOLD, 11));
+        pickaxe.setFont(new Font("Google Sans", Font.BOLD, 1));
+        pickaxe.setForeground(new Color(0xA4BE7B));
 
         harvest.setIcon(new ImageIcon(harvestImage));
         harvest.setBorder(BorderFactory.createEmptyBorder());
@@ -112,7 +116,8 @@ public class ToolPanel extends JPanel {
         harvest.setFocusable(false); // remove a border around the text
         harvest.setSize(150, 50);
         harvest.setHorizontalAlignment(JButton.CENTER);
-        harvest.setFont(new Font("Google Sans", Font.BOLD, 11));
+        harvest.setFont(new Font("Google Sans", Font.BOLD, 1));
+        harvest.setForeground(new Color(0xA4BE7B));
 
         // add buttons to Tool Panel
         this.add(plow);

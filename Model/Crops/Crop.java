@@ -1,5 +1,7 @@
 package Model.Crops;
 
+import java.util.Random;
+
 public abstract class Crop {
 
     private String name;
@@ -101,15 +103,81 @@ public abstract class Crop {
         return this.fertilizerCount;
     }
 
-    abstract public double computeSellPrice(double basePrice, int productsProduced);
+    /**
+     * This method takes generate the final selling price of the crop
+     * using the crop's basePrice and the generated produce.
+     * 
+     * @param basePrice        base price of per piece of crop upon harvest
+     * @param productsProduced how many pieces a crop can produce
+     * @return final selling price of crop
+     */
 
-    abstract public int generateProduce();
+    public double computeSellPrice(double basePrice, int productsProduced) {
+        double harvestTotal;
+        double fertilizerBonus, waterBonus, finalHarvestPrice;
 
-    abstract public void updateWaterCount();
+        /*
+         * compute for harvestTotal
+         * Harvest Total = ProductsProduced x
+         * (BaseSellingPricePerPiece +
+         * FarmerTypeEarningBonus)
+         */
 
-    abstract public void updateFertilizerCount();
+        harvestTotal = productsProduced * (basePrice); // Farmer Type has not yet been declared.
 
-    abstract public void updateFertilizerLimit(int increase);
+        /*
+         * compute for fertilizerBonus
+         * FertilizerBonus = HarvestTotal x 0.5 x
+         * TimesCropAddedFertilizer
+         */
+        fertilizerBonus = harvestTotal * 0.5 * fertilizerCount;
 
-    abstract public void updateWaterLimit(int increase);
+        /*
+         * compute for waterBonus
+         * WaterBonus = HarvestTotal x 0.2
+         * x (TimesCropWasWatered – 1)
+         */
+        waterBonus = harvestTotal * 0.2 * waterCount;
+
+        /*
+         * compute FinalHarvestPrice
+         * finalHarvestPrice = harvestTotal + waterBonus
+         * + fertilizerBonus;
+         */
+        finalHarvestPrice = harvestTotal + waterBonus + fertilizerBonus;
+
+        return finalHarvestPrice;
+    }
+
+    // abstract public int generateProduce();
+    public int generateProduce() {
+        Random random = new Random();
+        this.productsProduced = random.nextInt(this.cropMinProduce - this.cropMaxProduce + 1) + this.cropMinProduce;
+        return this.productsProduced;
+    }
+
+    public void updateWaterCount() {
+        if (this.waterCount < waterLimit) {
+            this.waterCount += 1;
+        } else {
+            System.out.println("Water limit reached. Bonus will not be applied");
+        }
+    }
+
+    public void updateFertilizerCount() {
+        if (this.fertilizerCount < fertilizerLimit) {
+            this.fertilizerCount += 1;
+        } else {
+            System.out.println("Fertilizer limit reached. Bonus will not be applied");
+        }
+    }
+
+    public void updateWaterLimit(int increase) {
+        this.waterLimit = this.waterLimit + increase;
+    }
+
+    public void updateFertilizerLimit(int increase) {
+        this.fertilizerLimit = this.fertilizerLimit + increase;
+    }
+
 }
