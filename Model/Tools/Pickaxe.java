@@ -17,8 +17,7 @@ public class Pickaxe extends Tools {
      * @param level  current level of the player
      */
 
-    public void useTool(Farmtile Tile, ObjectCoin amount, Level level) {
-        Tile.updateWithered(false);// change this to remove rock
+    public void useTool(ObjectCoin amount, Level level) {
 
         /* Deduct cost of using the fertilizer tool */
         amount.loseObjectCoin(getCost());

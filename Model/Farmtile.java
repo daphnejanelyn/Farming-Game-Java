@@ -35,7 +35,7 @@ public class Farmtile {
      */
 
     public void updatePlowed(boolean plowUsed) {
-        if (plowUsed == true) {
+        if (plowUsed) {
             plowed = true;
         } else {
             plowed = false;

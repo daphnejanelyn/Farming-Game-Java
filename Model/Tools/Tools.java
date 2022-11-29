@@ -14,7 +14,7 @@ public abstract class Tools {
         this.experienceGain = experienceGain;
     }
 
-    abstract public void useTool(Farmtile tile, ObjectCoin amount, Level level);
+    abstract public void useTool(ObjectCoin amount, Level level);
 
     /**
      * This method returns the money needed to use the tool.

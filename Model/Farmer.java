@@ -13,7 +13,7 @@ public class Farmer {
     private Farmtile tile;
     private int day = 0;
     private int tileIndex;
-    private Farm land = new Farm();
+    private Farm land;
 
     private int bonusEarning = 0;
     private int costReduction = 0;
@@ -28,6 +28,8 @@ public class Farmer {
         this.plantList = new ArrayList<Crop>();
         this.level = new Level();
         this.amount = new ObjectCoin();
+        this.tile = new Farmtile();
+        this.land = new Farm();
     }
 
     /* Tile the farmer is navigating */
@@ -81,32 +83,32 @@ public class Farmer {
     // for tools
     public void plowTile() {
         Plow plow = new Plow();
-        plow.useTool(this.tile, amount, level);
-        tile.updatePlowed(true);
+        plow.useTool(amount, level);
+        this.tile.updatePlowed(true);
     }
 
     public void waterTile() {
         WateringCan water = new WateringCan();
-        water.useTool(this.tile, amount, level);
+        water.useTool(amount, level);
         tile.updateWaterStatus(true);
 
     }
 
     public void fertilizeTile() {
         Fertilizer fertilize = new Fertilizer();
-        fertilize.useTool(this.tile, amount, level);
+        fertilize.useTool(amount, level);
         tile.updateFertilizerStatus(true);
     }
 
     public void removeRock() {
         Shovel shovel = new Shovel();
-        shovel.useTool(this.tile, amount, level);
+        shovel.useTool(amount, level);
         tile.updateRockStatus(false);
     }
 
     public void weedOutCrop() {
         Pickaxe pickaxe = new Pickaxe();
-        pickaxe.useTool(this.tile, amount, level);
+        pickaxe.useTool(amount, level);
         tile.updatePlantedStatus(false);
         tile.updatePlowed(false);
 

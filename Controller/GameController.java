@@ -30,7 +30,7 @@ public class GameController implements ActionListener {
 
         // tools
 
-        if (e.getActionCommand().equals("Plow")) {
+        else if (e.getActionCommand().equals("Plow")) {
             int currIndex = player.determineTile();
             player.plowTile();
             gui.updateView("plowed", currIndex);
@@ -41,14 +41,16 @@ public class GameController implements ActionListener {
             int currIndex = player.determineTile();
             // display prompt that plant has been watered [gui]
             player.waterTile();
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
         }
 
         if (e.getActionCommand().equals("Fertilizer")) {
             int currIndex = player.determineTile();
             // display prompt that plant has been watered [gui]
             player.fertilizeTile();
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
         }
 
         // add button for next day
@@ -58,7 +60,8 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Turnip tempTurnip = new Turnip("Turnip", "Root Crop");
             player.buySeeds(tempTurnip);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to turnip seed
         }
 
@@ -66,7 +69,8 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Carrot temp = new Carrot("Carrot", "Root Crop");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to carrot seed
         }
 
@@ -74,14 +78,16 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Potato temp = new Potato("Potato", "Root Crop");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to potato seed
         }
         if (e.getActionCommand().equals("Rose")) {
             // buy and plant turnip seed
             Rose temp = new Rose("Rose", "Flower");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to rose seed
         }
 
@@ -89,7 +95,8 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Tulip temp = new Tulip("Tulip", "Flower");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to tulip seed
         }
 
@@ -97,7 +104,8 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Sunflower temp = new Sunflower("Sunflower", "Flower");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to sunflower seed
         }
 
@@ -105,7 +113,8 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Mango temp = new Mango("Mango", "Fruit Tree");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to mango seed
         }
 
@@ -113,7 +122,8 @@ public class GameController implements ActionListener {
             // buy and plant turnip seed
             Apple temp = new Apple("Apple", "Fruit Tree");
             player.buySeeds(temp);
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             // update view of tile to apple seed
         }
 
@@ -121,7 +131,8 @@ public class GameController implements ActionListener {
             // harvest the crop
             int currIndex = player.determineTile();
             player.harvestCrop();
-            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                    player.getLevel(), player.getDay());
             gui.updateView("unplowed", currIndex);
         }
 

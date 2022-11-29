@@ -17,8 +17,7 @@ public class WateringCan extends Tools {
      * @param amount current number of ObjectCoins
      * @param level  current level of the player
      */
-    public void useTool(Farmtile Tile, ObjectCoin amount, Level level) {
-        Tile.updateWaterStatus(true);
+    public void useTool(ObjectCoin amount, Level level) {
 
         /* Deduct cost of using the Watering Can */
         amount.loseObjectCoin(getCost());

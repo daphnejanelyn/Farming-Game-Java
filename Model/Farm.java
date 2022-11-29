@@ -26,7 +26,6 @@ public class Farm {
         for (int i = 0; i < 50; i++) {
             Farmtile tile = new Farmtile();
             this.tiles.add(tile);
-            this.tiles.get(this.tiles.size() - 1).setIndexperTile(i);
         }
     }
 
