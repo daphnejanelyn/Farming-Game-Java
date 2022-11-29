@@ -28,12 +28,32 @@ public class GameController implements ActionListener {
             player.assignTile(index);
         }
 
+        // tools
+
         if (e.getActionCommand().equals("Plow")) {
             int currIndex = player.determineTile();
             player.plowTile();
             gui.updateView("plowed", currIndex);
             gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
         }
+
+        if (e.getActionCommand().equals("Watering Can")) {
+            int currIndex = player.determineTile();
+            // display prompt that plant has been watered [gui]
+            player.waterTile();
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+        }
+
+        if (e.getActionCommand().equals("Fertilizer")) {
+            int currIndex = player.determineTile();
+            // display prompt that plant has been watered [gui]
+            player.fertilizeTile();
+            gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+        }
+
+        // add button for next day
+
+        // seeds
         if (e.getActionCommand().equals("Turnip")) {
             // buy and plant turnip seed
             Turnip tempTurnip = new Turnip("Turnip", "Root Crop");
