@@ -18,8 +18,7 @@ public class Fertilizer extends Tools {
      * @param level  current level of the player
      */
 
-    public void useTool(Farmtile Tile, ObjectCoin amount, Level level) {
-        Tile.updateRockStatus(true);
+    public void useTool(ObjectCoin amount, Level level) {
 
         /* Deduct cost of using the fertilizer tool */
         amount.loseObjectCoin(getCost());

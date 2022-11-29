@@ -10,8 +10,7 @@ public class Plow extends Tools {
         super(0, 0.5);
     }
 
-    public void useTool(Farmtile Tile, ObjectCoin amount, Level level) {
-        Tile.updatePlowed(true);
+    public void useTool(ObjectCoin amount, Level level) {
 
         /* Deduct cost of using the Plowing tool */
         amount.loseObjectCoin(getCost());
