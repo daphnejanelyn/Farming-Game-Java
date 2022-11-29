@@ -23,7 +23,7 @@ public class UpgradePanel extends JPanel {
         this.setForeground(Color.WHITE);
         this.setBackground(new Color(0xA4BE7B));
         this.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        this.setPreferredSize(new Dimension(160, 275));
+        this.setPreferredSize(new Dimension(160, 250));
         init();
         addButtons();
         this.setVisible(true);

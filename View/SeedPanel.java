@@ -66,6 +66,9 @@ public class SeedPanel extends JPanel {
         turnip.setFocusable(false);
         turnip.setSize(150, 50);
         turnip.setHorizontalAlignment(JButton.CENTER);
+        turnip.setVerticalAlignment(JButton.CENTER);
+        turnip.setFont(new Font("Google Sans", Font.BOLD, 1));
+        turnip.setForeground(new Color(0xA4BE7B));
 
         carrot.setIcon(new ImageIcon(carrotImage));
         carrot.setBorder(BorderFactory.createEmptyBorder());
@@ -73,6 +76,9 @@ public class SeedPanel extends JPanel {
         carrot.setFocusable(false);
         carrot.setSize(150, 50);
         carrot.setHorizontalAlignment(JButton.CENTER);
+        carrot.setVerticalAlignment(JButton.CENTER);
+        carrot.setFont(new Font("Google Sans", Font.BOLD, 1));
+        carrot.setForeground(new Color(0xA4BE7B));
 
         potato.setIcon(new ImageIcon(potatoImage));
         potato.setBorder(BorderFactory.createEmptyBorder());
@@ -80,6 +86,9 @@ public class SeedPanel extends JPanel {
         potato.setFocusable(false);
         potato.setSize(150, 50);
         potato.setHorizontalAlignment(JButton.CENTER);
+        potato.setVerticalAlignment(JButton.CENTER);
+        potato.setFont(new Font("Google Sans", Font.BOLD, 1));
+        potato.setForeground(new Color(0xA4BE7B));
 
         rose.setIcon(new ImageIcon(roseImage));
         rose.setBorder(BorderFactory.createEmptyBorder());
@@ -87,6 +96,9 @@ public class SeedPanel extends JPanel {
         rose.setFocusable(false);
         rose.setSize(150, 50);
         rose.setHorizontalAlignment(JButton.CENTER);
+        rose.setVerticalAlignment(JButton.CENTER);
+        rose.setFont(new Font("Google Sans", Font.BOLD, 1));
+        rose.setForeground(new Color(0xA4BE7B));
 
         sunflower.setIcon(new ImageIcon(sunflowerImage));
         sunflower.setBorder(BorderFactory.createEmptyBorder());
@@ -94,6 +106,9 @@ public class SeedPanel extends JPanel {
         sunflower.setFocusable(false);
         sunflower.setSize(150, 50);
         sunflower.setHorizontalAlignment(JButton.CENTER);
+        sunflower.setVerticalAlignment(JButton.CENTER);
+        sunflower.setFont(new Font("Google Sans", Font.BOLD, 1));
+        sunflower.setForeground(new Color(0xA4BE7B));
 
         tulips.setIcon(new ImageIcon(tulipImage));
         tulips.setBorder(BorderFactory.createEmptyBorder());
@@ -101,6 +116,9 @@ public class SeedPanel extends JPanel {
         tulips.setFocusable(false);
         tulips.setSize(150, 50);
         tulips.setHorizontalAlignment(JButton.CENTER);
+        tulips.setVerticalAlignment(JButton.CENTER);
+        tulips.setFont(new Font("Google Sans", Font.BOLD, 1));
+        tulips.setForeground(new Color(0xA4BE7B));
 
         mango.setIcon(new ImageIcon(mangoImage));
         mango.setBorder(BorderFactory.createEmptyBorder());
@@ -108,6 +126,9 @@ public class SeedPanel extends JPanel {
         mango.setFocusable(false);
         mango.setSize(150, 50);
         mango.setHorizontalAlignment(JButton.CENTER);
+        mango.setVerticalAlignment(JButton.CENTER);
+        mango.setFont(new Font("Google Sans", Font.BOLD, 1));
+        mango.setForeground(new Color(0xA4BE7B));
 
         apple.setIcon(new ImageIcon(appleImage));
         apple.setBorder(BorderFactory.createEmptyBorder());
@@ -115,6 +136,9 @@ public class SeedPanel extends JPanel {
         apple.setFocusable(false);
         apple.setSize(150, 50);
         apple.setHorizontalAlignment(JButton.CENTER);
+        apple.setVerticalAlignment(JButton.CENTER);
+        apple.setFont(new Font("Google Sans", Font.BOLD, 1));
+        apple.setForeground(new Color(0xA4BE7B));
 
         this.add(turnip);
         this.add(carrot);

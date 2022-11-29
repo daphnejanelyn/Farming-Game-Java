@@ -27,7 +27,7 @@ public class ToolPanel extends JPanel {
         this.setLayout(new GridLayout(3, 1));
         this.setBackground(new Color(0xA4BE7B));
         this.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        this.setPreferredSize(new Dimension(160, 300));
+        this.setPreferredSize(new Dimension(160, 250));
         init();
         addButtons();
         this.setVisible(true);
