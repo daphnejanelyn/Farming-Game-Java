@@ -38,11 +38,23 @@ public class MainFrameView extends JFrame {
         midPanelView.getTile(i).updateView(status);
     }
 
+    public void updateViewtoPlant(String crop, int i, int start, int current, int end) {
+        midPanelView.getTile(i).updateViewtoPlant(crop, start, current, end);
+    }
+
     public void updateAccessoryStatus(double coins, double points, int level, int day) {
         accessoryPanel.updateDay(day);
         accessoryPanel.updateLevel(level);
         accessoryPanel.updateObjectCoins(coins);
         accessoryPanel.updateXP(points);
+    }
+
+    public void displayPrompt(String status) {
+        titlePanel.displayPrompt(status);
+    }
+
+    public void hidePrompt() {
+        titlePanel.hidePrompt();
     }
 
     public void setActionListener(ActionListener listener) {
@@ -68,6 +80,9 @@ public class MainFrameView extends JFrame {
         toolUpgradePanel.getUpgrade().getReg().addActionListener(listener);
         toolUpgradePanel.getUpgrade().getDis().addActionListener(listener);
         toolUpgradePanel.getUpgrade().getLeg().addActionListener(listener);
+
+        // next day init
+        toolUpgradePanel.getNextDay().getNextDayButton().addActionListener(listener);
 
         // main panel init
         for (int i = 0; i < midPanelView.getPerTile().size(); i++) {

@@ -34,9 +34,37 @@ public class Farmer {
 
     /* Tile the farmer is navigating */
     public void assignTile(int tileClicked) {
-        this.tileIndex = tileClicked;
+        land.setIndexTiles();
         // need to get Tile itself from Farm
-        this.tile = land.getTile(tileClicked);
+        this.tileIndex = tileClicked;
+        this.tile = land.getTile(tileIndex);
+    }
+
+    public ArrayList<Farmtile> getAllTiles() {
+        return this.land.getTileList();
+    }
+
+    public String determineCrop(int index) {
+        Crop temp = this.land.getTile(index).identifyCropinTile();
+
+        if (temp instanceof Turnip) {
+            return "Turnip";
+        } else if (temp instanceof Carrot) {
+            return "Carrot";
+        } else if (temp instanceof Potato) {
+            return "Potato";
+        } else if (temp instanceof Rose) {
+            return "Rose";
+        } else if (temp instanceof Sunflower) {
+            return "Sunflower";
+        } else if (temp instanceof Tulip) {
+            return "Tulip";
+        } else if (temp instanceof Mango) {
+            return "Mango";
+        } else {
+            return "Apple";
+        }
+
     }
 
     public int determineTile() {
@@ -72,12 +100,28 @@ public class Farmer {
         return this.registrationFee;
     }
 
+    public Farmtile getTile() {
+        return this.tile;
+    }
+
     public void addCrop(Crop crop) {
         this.plantList.add(crop);
     }
 
     public ArrayList<Crop> getCrop() {
         return this.plantList;
+    }
+
+    public void nextDay() {
+        this.day += 1;
+    }
+
+    public boolean plowedAllow() {
+        if (this.tile.isPlowed() == false && this.tile.isPlanted() == false) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // for tools
@@ -87,47 +131,95 @@ public class Farmer {
         this.tile.updatePlowed(true);
     }
 
+    public boolean waterAllowed() {
+        if (this.tile.isPlowed()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void waterTile() {
         WateringCan water = new WateringCan();
         water.useTool(amount, level);
         tile.updateWaterStatus(true);
+        if (tile.isPlanted()) {
+            this.tile.identifyCropinTile().updateWaterCount();
+        }
 
+    }
+
+    public boolean fertilizerAllowed() {
+        if (this.tile.isPlowed()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void fertilizeTile() {
         Fertilizer fertilize = new Fertilizer();
         fertilize.useTool(amount, level);
         tile.updateFertilizerStatus(true);
-    }
-
-    public void removeRock() {
-        Shovel shovel = new Shovel();
-        shovel.useTool(amount, level);
-        tile.updateRockStatus(false);
+        if (tile.isPlanted()) {
+            this.tile.identifyCropinTile().updateFertilizerCount();
+        }
     }
 
     public void weedOutCrop() {
-        Pickaxe pickaxe = new Pickaxe();
-        pickaxe.useTool(amount, level);
+        Shovel shovel = new Shovel();
+        shovel.useTool(amount, level);
         tile.updatePlantedStatus(false);
         tile.updatePlowed(false);
+        tile.updateWithered(false);
+    }
 
+    public boolean isShovelAllowed() {
+        if (this.tile.isWithered() && this.tile.isPlanted()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void removedRock() {
+        Pickaxe pickaxe = new Pickaxe();
+        pickaxe.useTool(amount, level);
+        tile.updateRockStatus(false);
+
+    }
+
+    public boolean buyAllowed() {
+        if (this.tile.isPlowed() && this.tile.isPlanted() == false) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void buySeeds(Crop crop) {
         // crop
 
         tile.storeCropinTile(crop);
-        this.amount.loseObjectCoin((this.tile.identifyCropinTile()).getSeedCost());
-        this.level.updateXP(this.tile.identifyCropinTile().getExpGained());
-        this.level.determineLevel();
+        if (this.tile.identifyCropinTile().getSeedCost() <= amount.getObjectCoin()) {
+            this.amount.loseObjectCoin((this.tile.identifyCropinTile()).getSeedCost());
+            this.level.updateXP(this.tile.identifyCropinTile().getExpGained());
+            this.level.determineLevel();
+            this.tile.updatePlantedStatus(true);
+        }
 
     }
 
-    // public harvestCrop(Farmtile tile){
-    // tile.identifycropintile();
-
-    // }
+    public boolean harvestAllowed() {
+        if (this.tile.identifyCropinTile().reachedWaterMin() == true &&
+                this.tile.identifyCropinTile().reachedFertilizerMin() == true &&
+                (this.tile.getDayPlanted() +
+                        this.tile.identifyCropinTile().getHarvestTime()) == this.day) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void harvestCrop() {
         double basePrice = tile.identifyCropinTile().getBasePrice();
@@ -135,7 +227,14 @@ public class Farmer {
         double finalHarvestPrice = tile.identifyCropinTile().computeSellPrice(basePrice, productsProduced);
         level.updateXP(tile.identifyCropinTile().getExpGained());
         amount.gainObjectCoin((finalHarvestPrice + this.bonusEarning) * productsProduced);
+
+        // intializing variables back to 0 or null
+        this.tile.identifyCropinTile().setWaterCount();
+        this.tile.identifyCropinTile().setFertilizerCount();
         tile.updatePlowed(false);
+        tile.updatePlantedStatus(false);
+        tile.updateWithered(false);
+        tile.storeCropinTile(null);
     }
 
     public void updateDay() {

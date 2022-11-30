@@ -103,6 +103,14 @@ public abstract class Crop {
         return this.fertilizerCount;
     }
 
+    public void setWaterCount() {
+        this.waterCount = 0;
+    }
+
+    public void setFertilizerCount() {
+        this.fertilizerCount = 0;
+    }
+
     /**
      * This method takes generate the final selling price of the crop
      * using the crop's basePrice and the generated produce.
@@ -152,7 +160,7 @@ public abstract class Crop {
     // abstract public int generateProduce();
     public int generateProduce() {
         Random random = new Random();
-        this.productsProduced = random.nextInt(this.cropMinProduce - this.cropMaxProduce + 1) + this.cropMinProduce;
+        this.productsProduced = random.nextInt(this.cropMaxProduce - this.cropMinProduce + 1) + this.cropMinProduce;
         return this.productsProduced;
     }
 
@@ -178,6 +186,38 @@ public abstract class Crop {
 
     public void updateFertilizerLimit(int increase) {
         this.fertilizerLimit = this.fertilizerLimit + increase;
+    }
+
+    /**
+     * This method evaluates if the
+     * minimum water count for the crop has been reached.
+     * 
+     * @return true if minimum water count has been reached
+     *         false if minimum water count hasn't been reached
+     */
+
+    public boolean reachedWaterMin() {
+        if (waterCount >= this.waterMin) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * This method evaluates if the
+     * minimum fertilizer count for the crop has been reached.
+     * 
+     * @return true if minimum fertilizer count has been reached
+     *         false if minimum fertilizer count hasn't been reached
+     */
+
+    public boolean reachedFertilizerMin() {
+        if (fertilizerCount >= this.fertilizerMin) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

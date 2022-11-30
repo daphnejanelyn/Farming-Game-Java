@@ -153,15 +153,6 @@ public class ToolPanel extends JPanel {
         return harvest;
     }
 
-    // public void setActionListener(ActionListener listener) {
-    // plow.addActionListener(listener);
-    // water.addActionListener(listener);
-    // shovel.addActionListener(listener);
-    // fertilizer.addActionListener(listener);
-    // pickaxe.addActionListener(listener);
-
-    // }
-
     public void setPlowEnabled(boolean enabled) {
         plow.setEnabled(enabled);
     }

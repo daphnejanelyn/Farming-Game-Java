@@ -44,4 +44,8 @@ public class NextDayPanel extends JPanel {
 
         this.add(nextDay);
     }
+
+    public JButton getNextDayButton() {
+        return this.nextDay;
+    }
 }

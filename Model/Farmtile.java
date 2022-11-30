@@ -13,18 +13,19 @@ public class Farmtile {
     private boolean harvested = false;
     private boolean withered = false;
     private boolean cleaned = false;
+    private int day = 0;
 
     public Farmtile() {
 
     }
 
-    public void setIndexperTile(int init) {
-        this.index = init;
-    }
+    // public void setIndexperTile(int init) {
+    // this.index = init;
+    // }
 
-    public int getIndex() {
-        return this.index;
-    }
+    // public int getIndex() {
+    // return this.index;
+    // }
 
     // add a method that identifies which crop is planted
 
@@ -234,6 +235,8 @@ public class Farmtile {
             this.cropInTile = new Mango("Mango", "Fruit Tree");
         } else if (crop instanceof Apple) {
             this.cropInTile = new Apple("Apple", "Fruit Tree");
+        } else {
+            this.cropInTile = null;
         }
     }
 
@@ -248,6 +251,14 @@ public class Farmtile {
 
     public Crop identifyCropinTile() {
         return this.cropInTile;
+    }
+
+    public void setDayPlanted(int initialday) {
+        this.day = initialday;
+    }
+
+    public int getDayPlanted() {
+        return this.day;
     }
 
 }
