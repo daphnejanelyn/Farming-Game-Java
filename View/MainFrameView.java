@@ -34,6 +34,10 @@ public class MainFrameView extends JFrame {
 
     }
 
+    // public void assignView(String status, int i) {
+    // midPanelView.getTile(i).updateView(status);
+    // }
+
     public void updateView(String status, int i) {
         midPanelView.getTile(i).updateView(status);
     }

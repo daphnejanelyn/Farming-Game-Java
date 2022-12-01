@@ -20,6 +20,7 @@ public class TileView extends JButton {
     public BufferedImage turnipReadyImage;
     public BufferedImage witheredImage;
     public BufferedImage plowedImage;
+    public BufferedImage rockedImage;
 
     public TileView() {
         this.setLayout(new GridBagLayout());
@@ -29,6 +30,21 @@ public class TileView extends JButton {
     }
 
     public void assignView() {
+        // if (status.equals("rocked")) {
+
+        // try {
+        // rockedImage =
+        // ImageIO.read(getClass().getResourceAsStream("../resources/buttons/rock-tile.png"));
+        // } catch (Exception e) {
+        // // TODO: handle exception
+        // e.printStackTrace();
+        // }
+
+        // this.setIcon(new ImageIcon(rockedImage));
+        // this.setBackground(new Color(0x7F462C));
+        // this.setContentAreaFilled(true);
+        // this.setForeground(new Color(0x7F462C));
+
         this.setIcon(null);
         this.setBackground(new Color(0x7F462C));
         this.setContentAreaFilled(true);
@@ -77,7 +93,17 @@ public class TileView extends JButton {
             this.setSize(150, 50);
             this.setHorizontalAlignment(JButton.CENTER);
             this.setVerticalAlignment(JButton.CENTER);
+
+        } else if (status.equals("rocked")) {
+            this.setIcon(new ImageIcon(rockedImage));
+            this.setBorder(BorderFactory.createEmptyBorder());
+            this.setContentAreaFilled(false);
+            this.setFocusable(false);
+            this.setSize(150, 50);
+            this.setHorizontalAlignment(JButton.CENTER);
+            this.setVerticalAlignment(JButton.CENTER);
         }
+
     }
 
     public void updateViewtoPlant(String crop, int startday, int currentday, int finalday) {

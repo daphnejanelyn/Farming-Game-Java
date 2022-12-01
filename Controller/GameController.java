@@ -18,7 +18,6 @@ public class GameController implements ActionListener {
     public GameController(MainFrameView gui, Farmer player) {
         this.gui = gui;
         this.player = player;
-
         gui.setActionListener(this);
     }
 
@@ -304,5 +303,4 @@ public class GameController implements ActionListener {
             }
         }
     }
-
 }
