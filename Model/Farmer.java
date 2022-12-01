@@ -118,7 +118,7 @@ public class Farmer {
     }
 
     public boolean plowedAllow() {
-        if (this.tile.isPlowed() == false && this.tile.isPlanted() == false) {
+        if (this.tile.isPlowed() == false && this.tile.isPlanted() == false && this.tile.isRockThere() == false) {
             return true;
         } else {
             return false;
@@ -190,6 +190,14 @@ public class Farmer {
 
     }
 
+    public boolean isPickAxeAllowed() {
+        if (this.tile.isRockThere()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public boolean buyAllowed() {
         if (this.tile.isPlowed() && this.tile.isPlanted() == false) {
             return true;
@@ -198,7 +206,7 @@ public class Farmer {
         }
     }
 
-    public void buySeeds(Crop crop) {
+    public boolean buySeeds(Crop crop) {
         // crop
 
         tile.storeCropinTile(crop);
@@ -207,6 +215,9 @@ public class Farmer {
             this.level.updateXP(this.tile.identifyCropinTile().getExpGained());
             this.level.determineLevel();
             this.tile.updatePlantedStatus(true);
+            return true;
+        } else {
+            return false;
         }
 
     }

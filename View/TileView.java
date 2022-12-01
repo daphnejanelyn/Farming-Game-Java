@@ -25,30 +25,31 @@ public class TileView extends JButton {
     public TileView() {
         this.setLayout(new GridBagLayout());
         this.setPreferredSize(new Dimension(75, 75));
-        assignView();
+        assignView("unplowed");
         this.setVisible(true);
     }
 
-    public void assignView() {
-        // if (status.equals("rocked")) {
+    public void assignView(String status) {
 
-        // try {
-        // rockedImage =
-        // ImageIO.read(getClass().getResourceAsStream("../resources/buttons/rock-tile.png"));
-        // } catch (Exception e) {
-        // // TODO: handle exception
-        // e.printStackTrace();
-        // }
+        try {
+            rockedImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/rock-tile.png"));
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
 
-        // this.setIcon(new ImageIcon(rockedImage));
-        // this.setBackground(new Color(0x7F462C));
-        // this.setContentAreaFilled(true);
-        // this.setForeground(new Color(0x7F462C));
+        if (status.equals("rocked")) {
+            this.setIcon(new ImageIcon(rockedImage));
+            this.setBackground(new Color(0x7F462C));
+            this.setContentAreaFilled(true);
+            this.setForeground(new Color(0x7F462C));
+        } else if (status.equals("unplowed")) {
 
-        this.setIcon(null);
-        this.setBackground(new Color(0x7F462C));
-        this.setContentAreaFilled(true);
-        this.setForeground(new Color(0x7F462C));
+            this.setIcon(null);
+            this.setBackground(new Color(0x7F462C));
+            this.setContentAreaFilled(true);
+            this.setForeground(new Color(0x7F462C));
+        }
 
     }
 

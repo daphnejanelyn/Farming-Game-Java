@@ -88,6 +88,13 @@ public class TitlePanel extends JPanel {
             prompt.setHorizontalAlignment(JLabel.CENTER);
             this.add(prompt);
             prompt.setVisible(true);
+        } else if (status.equals("PickAxe Failed")) {
+            prompt.setText("Remove Rock Failed");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
         }
     }
 

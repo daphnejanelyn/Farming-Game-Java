@@ -3,10 +3,7 @@ package Controller;
 import View.*;
 import Model.*;
 import Model.Crops.*;
-import Model.Tools.Shovel;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +15,7 @@ public class GameController implements ActionListener {
     public GameController(MainFrameView gui, Farmer player) {
         this.gui = gui;
         this.player = player;
+        assignView();
         gui.setActionListener(this);
     }
 
@@ -86,6 +84,21 @@ public class GameController implements ActionListener {
             }
         }
 
+        if (e.getActionCommand().equals("PickAxe")) {
+            int currIndex = player.determineTile();
+
+            if (player.isPickAxeAllowed()) {
+                gui.updateView("unplowed", currIndex);
+                player.removedRock();
+                gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                        player.getLevel(), player.getDay());
+            } else {
+                // display prompt
+                gui.displayPrompt("PickAxe Failed");
+            }
+
+        }
+
         // add button for next day
 
         if (e.getActionCommand().equals("Proceed to Next Day")) {
@@ -117,13 +130,17 @@ public class GameController implements ActionListener {
             if (player.buyAllowed()) {
                 // buy and plant turnip seed
                 Turnip tempTurnip = new Turnip("Turnip", "Root Crop");
-                player.buySeeds(tempTurnip);
-                player.getTile().setDayPlanted(player.getDay());
-                gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
-                        player.getLevel(), player.getDay());
+                if (player.buySeeds(tempTurnip)) {
 
-                gui.updateViewtoPlant("Turnip", player.determineTile(), player.getTile().getDayPlanted(),
-                        player.getDay(), player.getDay() + player.getTile().identifyCropinTile().getHarvestTime());
+                    player.getTile().setDayPlanted(player.getDay());
+                    gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
+                            player.getLevel(), player.getDay());
+
+                    gui.updateViewtoPlant("Turnip", player.determineTile(), player.getTile().getDayPlanted(),
+                            player.getDay(), player.getDay() + player.getTile().identifyCropinTile().getHarvestTime());
+                } else {
+                    gui.displayPrompt("Buy Failed");
+                }
 
             } else {
                 // display prompt
@@ -300,6 +317,16 @@ public class GameController implements ActionListener {
 
                     player.getAllTiles().get(i).updateWithered(true);
                 }
+            }
+        }
+    }
+
+    private void assignView() {
+        for (int i = 0; i < 50; i++) {
+            if (player.getAllTiles().get(i).isRockThere()) {
+                gui.assignView("rocked", i);
+            } else {
+                gui.assignView("unplowed", i);
             }
         }
     }
