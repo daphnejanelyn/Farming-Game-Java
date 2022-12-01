@@ -287,7 +287,7 @@ public class GameController implements ActionListener {
             currentDay = player.getDay();
             if (player.getAllTiles().get(i).identifyCropinTile() != null) {
 
-                dayofHarvest = dayPlanted + player.getAllTiles().get(i).identifyCropinTile().getHarvestTime();
+                dayofHarvest = player.getAllTiles().get(i).identifyCropinTile().getHarvestTime();
                 if (player.getAllTiles().get(i).identifyCropinTile().reachedWaterMin() == false ||
                         player.getAllTiles().get(i).identifyCropinTile().reachedFertilizerMin() == false) {
                     if ((dayPlanted + dayofHarvest) <= currentDay) {

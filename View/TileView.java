@@ -29,7 +29,10 @@ public class TileView extends JButton {
     }
 
     public void assignView() {
+        this.setIcon(null);
         this.setBackground(new Color(0x7F462C));
+        this.setContentAreaFilled(true);
+        this.setForeground(new Color(0x7F462C));
 
     }
 

@@ -232,6 +232,7 @@ public class Farmer {
         // intializing variables back to 0 or null
         this.tile.identifyCropinTile().setWaterCount();
         this.tile.identifyCropinTile().setFertilizerCount();
+        this.tile.setDayPlanted(0);
         tile.updatePlowed(false);
         tile.updatePlantedStatus(false);
         tile.updateWithered(false);
