@@ -43,9 +43,9 @@ public class UpgradePanel extends JPanel {
 
         try {
 
-            regImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/15.png"));
-            disImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/16.png"));
-            legImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/17.png"));
+            regImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/registered.png"));
+            disImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/distinguished.png"));
+            legImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/legendary.png"));
 
         } catch (IOException e) {
             // TODO Auto-generated catch block

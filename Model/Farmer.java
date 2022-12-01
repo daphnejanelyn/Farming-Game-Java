@@ -34,7 +34,8 @@ public class Farmer {
 
     /* Tile the farmer is navigating */
     public void assignTile(int tileClicked) {
-        land.setIndexTiles();
+        // land.setIndexTiles();
+        // land.loadMap();
         // need to get Tile itself from Farm
         this.tileIndex = tileClicked;
         this.tile = land.getTile(tileIndex);

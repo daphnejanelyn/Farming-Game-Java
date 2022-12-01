@@ -12,7 +12,7 @@ public class Farmtile {
     private boolean fertilized = false;
     private boolean harvested = false;
     private boolean withered = false;
-    private boolean cleaned = false;
+    private boolean cleaned;
     private int day = 0;
 
     public Farmtile() {
@@ -213,9 +213,9 @@ public class Farmtile {
         }
     }
 
-    public boolean isRockthere() {
+    public boolean isRockThere() {
         /* insert method for rocks */
-        return true;
+        return this.cleaned;
     }
 
     public void storeCropinTile(Crop crop) {

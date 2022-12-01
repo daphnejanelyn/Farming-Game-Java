@@ -48,12 +48,12 @@ public class ToolPanel extends JPanel {
 
         try {
 
-            plowImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/9.png"));
-            waterImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/10.png"));
-            fertilizerImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/11.png"));
-            shovelImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/12.png"));
-            pickaxeImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/13.png"));
-            harvestImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/14.png"));
+            plowImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/plow-tool.png"));
+            waterImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/wateringCan-tool.png"));
+            fertilizerImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/fertilizer-tool.png"));
+            pickaxeImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/pickaxe-tool.png"));
+            shovelImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/shovel-tool.png"));
+            harvestImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/harvest.png"));
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
