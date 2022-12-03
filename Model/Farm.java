@@ -31,7 +31,7 @@ public class Farm {
         for (int i = 0; i < 50; i++) {
             Farmtile tile = new Farmtile();
             this.tiles.add(tile);
-            // this.tiles.get(i).setIndexperTile(i);
+            this.tiles.get(i).setIndexperTile(i);
         }
     }
 

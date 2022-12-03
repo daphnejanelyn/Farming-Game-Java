@@ -16,10 +16,13 @@ public class Farmer {
     private Farm land;
 
     private int bonusEarning = 0;
-    private int costReduction = 0;
-    private double registrationFee = 0;
-    private int waterLimitIncrease = 0;
-    private int fertilizerLimitIncrease = 0;
+    protected double costReduction = 0;
+    protected double registrationFee = 0;
+    protected int waterLimitIncrease = 0;
+    protected int fertilizerLimitIncrease = 0;
+
+    private int productsProduced;
+    private double finalHarvestPrice;
 
     private int minDayHarvest = 0;
 
@@ -145,6 +148,7 @@ public class Farmer {
         water.useTool(amount, level);
         tile.updateWaterStatus(true);
         if (tile.isPlanted()) {
+            this.tile.identifyCropinTile().updateWaterLimit(waterLimitIncrease);
             this.tile.identifyCropinTile().updateWaterCount();
         }
 
@@ -163,6 +167,7 @@ public class Farmer {
         fertilize.useTool(amount, level);
         tile.updateFertilizerStatus(true);
         if (tile.isPlanted()) {
+            this.tile.identifyCropinTile().updateFertilizerLimit(fertilizerLimitIncrease);
             this.tile.identifyCropinTile().updateFertilizerCount();
         }
     }
@@ -176,7 +181,7 @@ public class Farmer {
     }
 
     public boolean isShovelAllowed() {
-        if (this.tile.isWithered() && this.tile.isPlanted()) {
+        if (this.tile.isWithered() || this.tile.isPlanted()) {
             return true;
         } else {
             return false;
@@ -206,16 +211,67 @@ public class Farmer {
         }
     }
 
+    public boolean checkSides() {
+        if (this.tile.identifyCropinTile().getCropType().equals("Fruit Tree")) {
+            if (this.tile.getIndex() % 10 == 0) {
+                return false;
+            } else if (this.tile.getIndex() % 10 == 9) {
+                return false;
+            } else if (this.tile.getIndex() >= 0 && this.tile.getIndex() <= 9) {
+                return false;
+
+            } else if (this.tile.getIndex() >= 39 && this.tile.getIndex() <= 49) {
+                return false;
+            } else {
+                return true;
+            }
+
+        } else {
+            return true;
+        }
+    }
+
+    public boolean checkadjacent() {
+        if (this.tile.identifyCropinTile().getCropType().equals("Fruit Tree")) {
+            if (this.land.getTile(this.tile.getIndex() - 10).isPlanted()
+                    || this.land.getTile(this.tile.getIndex() - 10).isRockThere()) {
+                return false;
+            } else if (this.land.getTile(this.tile.getIndex() + 10).isPlanted()
+                    || this.land.getTile(this.tile.getIndex() + 10).isRockThere()) {
+                return false;
+            } else if (this.land.getTile(this.tile.getIndex() + 1).isPlanted()
+                    || this.land.getTile(this.tile.getIndex() + 1).isRockThere()) {
+                return false;
+            } else if (this.land.getTile(this.tile.getIndex() - 1).isPlanted()
+                    || this.land.getTile(this.tile.getIndex() - 1).isRockThere()) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+
+    }
+
     public boolean buySeeds(Crop crop) {
         // crop
 
         tile.storeCropinTile(crop);
-        if (this.tile.identifyCropinTile().getSeedCost() <= amount.getObjectCoin()) {
-            this.amount.loseObjectCoin((this.tile.identifyCropinTile()).getSeedCost());
-            this.level.updateXP(this.tile.identifyCropinTile().getExpGained());
-            this.level.determineLevel();
-            this.tile.updatePlantedStatus(true);
-            return true;
+        if (this.tile.identifyCropinTile().getSeedCost() - this.costReduction <= amount.getObjectCoin()) {
+            if (checkSides()) {
+                if (checkadjacent()) {
+                    this.amount.loseObjectCoin((this.tile.identifyCropinTile()).getSeedCost() - this.costReduction);
+                    this.level.updateXP(this.tile.identifyCropinTile().getExpGained());
+                    this.level.determineLevel();
+                    this.tile.updatePlantedStatus(true);
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -235,8 +291,8 @@ public class Farmer {
 
     public void harvestCrop() {
         double basePrice = tile.identifyCropinTile().getBasePrice();
-        int productsProduced = tile.identifyCropinTile().generateProduce();
-        double finalHarvestPrice = tile.identifyCropinTile().computeSellPrice(basePrice, productsProduced);
+        this.productsProduced = tile.identifyCropinTile().generateProduce();
+        this.finalHarvestPrice = tile.identifyCropinTile().computeSellPrice(basePrice, productsProduced);
         level.updateXP(tile.identifyCropinTile().getExpGained());
         amount.gainObjectCoin((finalHarvestPrice + this.bonusEarning) * productsProduced);
 
@@ -252,5 +308,58 @@ public class Farmer {
 
     public void updateDay() {
         this.day += 1;
+    }
+
+    public int getProductsProduced() {
+        return this.productsProduced;
+    }
+
+    public double getFinalHarvestPrice() {
+        return this.finalHarvestPrice;
+    }
+
+    public boolean upgradeFarmerType(String status) {
+        /* upgrade to Registered Farmer */
+        if (status.equals("Registered") && this.getLevel() >= 5
+                && amount.getObjectCoin() >= 200) {
+            this.bonusEarning += 1;
+            this.costReduction = this.costReduction - 1;
+            this.waterLimitIncrease = 0;
+            this.fertilizerLimitIncrease = 0;
+            this.registrationFee = 200;
+            amount.loseObjectCoin(getRegFee());
+            // System.out.println("Successfully upgraded to Registered Farmer!");
+            return true;
+        }
+
+        /* upgrade to Distinguished Farmer */
+        else if (status.equals("Distinguished") && this.getLevel() >= 10
+                && amount.getObjectCoin() >= 300) {
+            this.bonusEarning += 2;
+            this.costReduction = this.costReduction - 2;
+            this.waterLimitIncrease = 1;
+            this.fertilizerLimitIncrease = 0;
+            this.registrationFee = 300;
+            amount.loseObjectCoin(getRegFee());
+            // System.out.println("Successfully upgraded to Distinguished Farmer!");
+            return true;
+        }
+
+        /* upgrade to Legendary Farmer */
+        else if (status.equals("Legendary") && this.getLevel() >= 15
+                && amount.getObjectCoin() >= 400) {
+            this.bonusEarning += 4;
+            this.costReduction = this.costReduction - 3;
+            this.waterLimitIncrease = 2;
+            this.fertilizerLimitIncrease = 1;
+            this.registrationFee = 400;
+            amount.loseObjectCoin(getRegFee());
+            // System.out.println("Successfully upgraded to Legendary Farmer!");
+            return true;
+
+        } else {
+            System.out.println("Upgrade Farmer Type has failed!");
+            return false;
+        }
     }
 }

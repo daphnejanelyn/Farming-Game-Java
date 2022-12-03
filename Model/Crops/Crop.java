@@ -152,7 +152,13 @@ public abstract class Crop {
          * finalHarvestPrice = harvestTotal + waterBonus
          * + fertilizerBonus;
          */
-        finalHarvestPrice = harvestTotal + waterBonus + fertilizerBonus;
+        if (this instanceof Tulip || this instanceof Sunflower || this instanceof Rose) {
+
+            finalHarvestPrice = harvestTotal + waterBonus + fertilizerBonus;
+            finalHarvestPrice = finalHarvestPrice * 1.1;
+        } else {
+            finalHarvestPrice = harvestTotal + waterBonus + fertilizerBonus;
+        }
 
         return finalHarvestPrice;
     }

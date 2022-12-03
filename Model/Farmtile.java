@@ -19,13 +19,13 @@ public class Farmtile {
 
     }
 
-    // public void setIndexperTile(int init) {
-    // this.index = init;
-    // }
+    public void setIndexperTile(int init) {
+        this.index = init;
+    }
 
-    // public int getIndex() {
-    // return this.index;
-    // }
+    public int getIndex() {
+        return this.index;
+    }
 
     // add a method that identifies which crop is planted
 

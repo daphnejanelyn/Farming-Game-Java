@@ -95,11 +95,63 @@ public class TitlePanel extends JPanel {
             prompt.setHorizontalAlignment(JLabel.CENTER);
             this.add(prompt);
             prompt.setVisible(true);
+        } else if (status.equals("Registered Farmer Success")) {
+            prompt.setText("Registered Farmer Successfully Upgraded");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
+        } else if (status.equals("Registered Farmer Failed")) {
+            prompt.setText("Registered Farmer Failed to Upgrade");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
+        } else if (status.equals("Distinguished Farmer Success")) {
+            prompt.setText("Distinguished Farmer Successfully Upgraded");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
+        } else if (status.equals("Distinguished Farmer Failed")) {
+            prompt.setText("Distinguished Farmer Failed to Upgrade");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
+        } else if (status.equals("Legendary Farmer Success")) {
+            prompt.setText("Legendary Farmer Successfully Upgraded");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
+        } else if (status.equals("Legendary Farmer Failed")) {
+            prompt.setText("Legendary Farmer Failed to Upgrade");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
         }
     }
 
     public void hidePrompt() {
         prompt.setText("");
+    }
+
+    public void harvestPrompt(int products, double harvestPrice) {
+        prompt.setText("Products: " + products + "          Harvest Price: " + harvestPrice);
+        prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+        prompt.setVerticalAlignment(JLabel.CENTER);
+        prompt.setHorizontalAlignment(JLabel.CENTER);
+        this.add(prompt);
+        prompt.setVisible(true);
+
     }
     /* include progress bar for level */
 

@@ -29,6 +29,10 @@ public class MainFrameView extends JFrame {
 
     }
 
+    public void getEndGameView() {
+        JOptionPane.showMessageDialog(this, "Game Over!");
+    }
+
     public int getTileIndex(TileView tile) {
         return tile.getIndex();
 
@@ -55,6 +59,10 @@ public class MainFrameView extends JFrame {
 
     public void displayPrompt(String status) {
         titlePanel.displayPrompt(status);
+    }
+
+    public void displayHarvestPrompt(int productsProduced, double harvestTime) {
+        titlePanel.harvestPrompt(productsProduced, harvestTime);
     }
 
     public void hidePrompt() {

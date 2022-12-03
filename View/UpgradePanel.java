@@ -10,9 +10,9 @@ import java.awt.event.ActionListener;
 
 public class UpgradePanel extends JPanel {
 
-    private JButton regFarmer = new JButton();
-    private JButton disFarmer = new JButton();
-    private JButton legFarmer = new JButton();
+    private JButton regFarmer = new JButton("Registered Farmer");
+    private JButton disFarmer = new JButton("Distinguished Farmer");
+    private JButton legFarmer = new JButton("Legendary Farmer");
 
     BufferedImage regImage;
     BufferedImage disImage;
@@ -59,7 +59,8 @@ public class UpgradePanel extends JPanel {
         regFarmer.setFocusable(false);
         regFarmer.setSize(150, 50);
         regFarmer.setHorizontalAlignment(JButton.CENTER);
-        regFarmer.setFont(new Font("Google Sans", Font.BOLD, 11));
+        regFarmer.setFont(new Font("Google Sans", Font.BOLD, 1));
+        regFarmer.setForeground(new Color(0xA4BE7B));
 
         /* Distinguished Farmer */
         disFarmer.setIcon(new ImageIcon(disImage));
@@ -68,7 +69,8 @@ public class UpgradePanel extends JPanel {
         disFarmer.setFocusable(false);
         disFarmer.setSize(150, 50);
         disFarmer.setHorizontalAlignment(JButton.CENTER);
-        disFarmer.setFont(new Font("Google Sans", Font.BOLD, 9));
+        disFarmer.setFont(new Font("Google Sans", Font.BOLD, 1));
+        disFarmer.setForeground(new Color(0xA4BE7B));
 
         /* Legendary Farmer */
         legFarmer.setIcon(new ImageIcon(legImage));
@@ -77,7 +79,8 @@ public class UpgradePanel extends JPanel {
         legFarmer.setFocusable(false);
         legFarmer.setSize(150, 50);
         legFarmer.setHorizontalAlignment(JButton.CENTER);
-        legFarmer.setFont(new Font("Google Sans", Font.BOLD, 11));
+        legFarmer.setFont(new Font("Google Sans", Font.BOLD, 1));
+        legFarmer.setForeground(new Color(0xA4BE7B));
 
         this.add(regFarmer);
         this.add(disFarmer);
