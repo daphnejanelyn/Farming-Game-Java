@@ -39,15 +39,24 @@ public class GameController implements ActionListener {
             if (checkEndGame()) {
                 gui.getEndGameView();
             } else {
-                int currIndex = player.determineTile();
-                player.plowTile();
-                gui.updateView("plowed", currIndex);
-                gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+                if (player.plowedAllow() == true) {
+                    int currIndex = player.determineTile();
+                    player.plowTile();
+                    gui.updateView("plowed", currIndex);
+                    gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(),
+                            player.getDay());
+                    gui.displayPrompt("Plowed");
+                } else if (player.plowedAllow() == false) {
+                    gui.displayPrompt("Failed Plow");
+                }
 
             }
+
         }
 
-        if (e.getActionCommand().equals("Water")) {
+        if (e.getActionCommand().equals("Water"))
+
+        {
             if (checkEndGame()) {
                 gui.getEndGameView();
             } else {
@@ -403,16 +412,17 @@ public class GameController implements ActionListener {
                     gui.displayHarvestPrompt(player.getProductsProduced(), player.getFinalHarvestPrice());
                     gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(),
                             player.getLevel(), player.getDay());
-                } else {
+                } else
                     // display prompt
                     gui.displayPrompt("Harvest Failed");
-                    // gui.hidePrompt();
-                }
+                // gui.hidePrompt();
             }
         }
 
         // upgrade buttons
-        if (e.getActionCommand().equals("Registered Farmer")) {
+        if (e.getActionCommand().equals("Registered Farmer"))
+
+        {
             if (checkEndGame()) {
                 gui.getEndGameView();
             } else {
