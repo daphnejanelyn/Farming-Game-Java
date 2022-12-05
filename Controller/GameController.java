@@ -40,9 +40,15 @@ public class GameController implements ActionListener {
                 gui.getEndGameView();
             } else {
                 int currIndex = player.determineTile();
-                player.plowTile();
-                gui.updateView("plowed", currIndex);
-                gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(), player.getDay());
+                if (player.plowedAllow()) {
+                    player.plowTile();
+                    gui.updateView("plowed", currIndex);
+                    gui.updateAccessoryStatus(player.getObjectCoin(), player.getXP(), player.getLevel(),
+                            player.getDay());
+
+                } else {
+                    gui.displayPrompt("Plow Failed");
+                }
 
             }
         }
@@ -52,7 +58,6 @@ public class GameController implements ActionListener {
                 gui.getEndGameView();
             } else {
 
-                int currIndex = player.determineTile();
                 // display prompt that plant has been watered [gui]
                 if (player.waterAllowed()) {
                     player.waterTile();
@@ -73,8 +78,6 @@ public class GameController implements ActionListener {
             if (checkEndGame()) {
                 gui.getEndGameView();
             } else {
-
-                int currIndex = player.determineTile();
                 // display prompt that plant has been watered [gui]
                 if (player.fertilizerAllowed()) {
                     player.fertilizeTile();

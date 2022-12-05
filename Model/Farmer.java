@@ -249,7 +249,26 @@ public class Farmer {
                 return true;
             }
         } else {
-            return true;
+            if (this.tile.getIndex() % 10 == 0 || this.tile.getIndex() % 10 == 9
+                    || this.tile.getIndex() >= 0 && this.tile.getIndex() <= 9
+                    || this.tile.getIndex() >= 39 && this.tile.getIndex() <= 49) {
+                return true;
+            }
+            if (this.land.getTile(this.tile.getIndex() - 10).identifyCropinTile() instanceof Mango ||
+                    this.land.getTile(this.tile.getIndex() - 10).identifyCropinTile() instanceof Apple) {
+                return false;
+            } else if (this.land.getTile(this.tile.getIndex() + 10).identifyCropinTile() instanceof Mango ||
+                    this.land.getTile(this.tile.getIndex() + 10).identifyCropinTile() instanceof Apple) {
+                return false;
+            } else if (this.land.getTile(this.tile.getIndex() - 1).identifyCropinTile() instanceof Mango ||
+                    this.land.getTile(this.tile.getIndex() - 1).identifyCropinTile() instanceof Apple) {
+                return false;
+            } else if (this.land.getTile(this.tile.getIndex() + 1).identifyCropinTile() instanceof Mango ||
+                    this.land.getTile(this.tile.getIndex() + 1).identifyCropinTile() instanceof Apple) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
     }

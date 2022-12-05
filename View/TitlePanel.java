@@ -13,16 +13,6 @@ public class TitlePanel extends JPanel {
         this.setVisible(true);
     }
 
-    /* Needs to be fixed */
-    private void setText() {
-        JLabel title = new JLabel();
-        title.setText("My Farm");
-        title.setFont(new Font("Google Sans", Font.BOLD, 30));
-        title.setVerticalAlignment(JLabel.TOP);
-        title.setHorizontalAlignment(JLabel.CENTER);
-        this.add(title);
-    }
-
     public void displayPrompt(String status) {
 
         if (status.equals("Watered")) {
@@ -132,6 +122,13 @@ public class TitlePanel extends JPanel {
             prompt.setVisible(true);
         } else if (status.equals("Legendary Farmer Failed")) {
             prompt.setText("Legendary Farmer Failed to Upgrade");
+            prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
+            prompt.setVerticalAlignment(JLabel.BOTTOM);
+            prompt.setHorizontalAlignment(JLabel.CENTER);
+            this.add(prompt);
+            prompt.setVisible(true);
+        } else if (status.equals("Plow Failed")) {
+            prompt.setText("Plowed Failed");
             prompt.setFont(new Font("Google Sans", Font.BOLD, 10));
             prompt.setVerticalAlignment(JLabel.BOTTOM);
             prompt.setHorizontalAlignment(JLabel.CENTER);
