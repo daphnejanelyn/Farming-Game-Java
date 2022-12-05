@@ -37,7 +37,7 @@ public class Farm {
 
     public void loadMap() {
         try {
-            InputStream is = getClass().getResourceAsStream("/resources/maps/map.txt");
+            InputStream is = getClass().getResourceAsStream("/resources/maps/rock-placements.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int index = 0;

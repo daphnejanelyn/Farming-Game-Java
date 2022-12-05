@@ -11,17 +11,29 @@ public class GameController implements ActionListener {
 
     private MainFrameView gui;
     private Farmer player;
+    Sound music = new Sound();
 
     public GameController(MainFrameView gui, Farmer player) {
         this.gui = gui;
         this.player = player;
         assignView();
         checkEndGame();
+        playMusic();
         gui.setActionListener(this);
+    }
+
+    public void playMusic() {
+        music.setFile(0);
+        music.play();
+        music.loop();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        music.setFile(1);
+        music.play();
+
         if (e.getSource() instanceof TileView) {
             if (checkEndGame()) {
                 gui.getEndGameView();

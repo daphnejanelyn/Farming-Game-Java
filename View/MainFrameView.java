@@ -17,6 +17,7 @@ public class MainFrameView extends JFrame {
         this.setResizable(false);
         this.setLayout(new BorderLayout());
         init();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
