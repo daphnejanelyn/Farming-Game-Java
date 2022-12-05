@@ -123,6 +123,8 @@ public class Farmer {
     public boolean plowedAllow() {
         if (this.tile.isPlowed() == false && this.tile.isPlanted() == false && this.tile.isRockThere() == false) {
             return true;
+        } else if (this.tile.isRockThere() == true) {
+            return false;
         } else {
             return false;
         }
