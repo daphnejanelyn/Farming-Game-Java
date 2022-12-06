@@ -5,26 +5,23 @@ import java.util.ArrayList;
 
 public class Farm {
 
-    private int numberofTilesRow;
-    private int numberofTilesCol;
     ArrayList<Farmtile> tiles = new ArrayList<Farmtile>();
 
-    public Farm() {
-        this.numberofTilesCol = 5;
-        this.numberofTilesRow = 10;
+    /**
+     * This constructor initializes the index of each tile and
+     * maps the rocks according to the text file.
+     */
 
+    public Farm() {
         setIndexTiles();
         loadMap();
     }
 
-    // public void setIndexTiles() {
-    // for (int i = 0; i < this.numberofTilesRow; i++) {
-    // for (int j = 0; j < this.numberofTilesCol; j++) {
-    // tiles[i][j].setIndexperTile(i + j + 1);
-    // }
-    // }
-
-    // }
+    /**
+     * This method creates and adds a tile, then
+     * sets the index of each tile in a 10 x 5
+     * lot from 0 to 49.
+     */
 
     public void setIndexTiles() {
 
@@ -35,30 +32,30 @@ public class Farm {
         }
     }
 
+    /**
+     * This method maps the rocks according to the text file,
+     * and places the rock depending on the randomized index
+     * stated in the text file.
+     */
+
     public void loadMap() {
         try {
             InputStream is = getClass().getResourceAsStream("/resources/maps/rock-placements.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int index = 0;
-            // System.out.println(br.readLine());
             while (index < 50) {
                 String line = br.readLine();
-                // String s[] = line.split("\n");
-                // System.out.println(line);
-                // int num = Integer.parseInt(line);
 
-                // System.out.println((line.equals("1")));
-
+                /*
+                 * If text file equals 1 or True for rock placement
+                 * update rock status of the corresponding tile to true.
+                 */
                 if (line.equals("1")) {
                     this.tiles.get(index).updateRockStatus(true);
                 } else {
                     this.tiles.get(index).updateRockStatus(false);
                 }
-
-                // System.out.println(String.format("%s: %d",
-                // this.tiles.get(index).isRockThere(), index));
-
                 index++;
             }
 
@@ -67,9 +64,22 @@ public class Farm {
         }
     }
 
+    /**
+     * This method gets the tile associated for a specific index.
+     * 
+     * @param index tile index that the the program wants to access
+     * @return tile associated to given index
+     */
+
     public Farmtile getTile(int index) {
         return this.tiles.get(index);
     }
+
+    /**
+     * This method returns the whole list of tiles added to the farm lot.
+     * 
+     * @return arraylist of farm tiles that the farm lot has
+     */
 
     public ArrayList<Farmtile> getTileList() {
         return this.tiles;

@@ -19,15 +19,23 @@ public class Farmtile {
 
     }
 
+    /**
+     * This method sets the index of the tile according to program input
+     * 
+     * @param init index to be assigned to tile
+     */
     public void setIndexperTile(int init) {
         this.index = init;
     }
 
+    /**
+     * This method gets the index assigned to the tile.
+     * 
+     * @return index assigned to the tile
+     */
     public int getIndex() {
         return this.index;
     }
-
-    // add a method that identifies which crop is planted
 
     /**
      * This method updates the status of tile to plowed.
@@ -213,12 +221,25 @@ public class Farmtile {
         }
     }
 
+    /**
+     * This method identifies if rock is present in the tile.
+     * 
+     * @return true if rock has been cleaned
+     *         false if rock is still in tile
+     */
+
     public boolean isRockThere() {
-        /* insert method for rocks */
         return this.cleaned;
     }
 
+    /**
+     * This method stores the seed or crop planted onto the tile.
+     * 
+     * @param crop crop planted or bought by the user
+     */
+
     public void storeCropinTile(Crop crop) {
+        /* Stores the specific crop to the tile based on polymorphism */
         if (crop instanceof Turnip) {
             this.cropInTile = new Turnip("Turnip", "Root Crop");
         } else if (crop instanceof Carrot) {
@@ -240,23 +261,30 @@ public class Farmtile {
         }
     }
 
-    /*
-     * method: storeCropinTile
-     * 1. method = identifyCropinTile (update view: kung anong klaseng plant yung
-     * ilalagay nya sa tile)
-     * 2. crop: class = cropName
-     * 3. identifyCropinTile (Crop crop)
-     * 4. if (crop instance of Turnip
+    /**
+     * This method identifies which crop is stored in the tile.
+     * 
+     * @return crop stored in tile
      */
 
     public Crop identifyCropinTile() {
         return this.cropInTile;
     }
 
+    /**
+     * This method sets the day in which the crop is planted to the tile.
+     * 
+     * @param initialday day crop was planted
+     */
     public void setDayPlanted(int initialday) {
         this.day = initialday;
     }
 
+    /**
+     * This method gets the day in which the crop is planted to the tile.
+     * 
+     * @return day crop ws planted
+     */
     public int getDayPlanted() {
         return this.day;
     }
