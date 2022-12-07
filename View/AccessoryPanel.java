@@ -7,6 +7,7 @@ public class AccessoryPanel extends JPanel {
     private JPanel objectCoinsPanel = new JPanel();
     private JPanel farmerXPnLevelPanel = new JPanel();
     private JPanel dayPanel = new JPanel();
+
     // declare title labels*/
     private JLabel objectCoins = new JLabel("Object Coins: 100");
     private JLabel farmerLevel = new JLabel("Level 0          ");
@@ -69,18 +70,22 @@ public class AccessoryPanel extends JPanel {
         this.add(dayPanel, BorderLayout.EAST);
     }
 
+    /* This method updates display of day count. */
     public void updateDay(int day) {
         this.day.setText("Day " + day);
     }
 
+    /* This method updates display of object coins amount. */
     public void updateObjectCoins(double coins) {
         this.objectCoins.setText("Object Coins: " + coins);
     }
 
+    /* This method updates display of the number of XP. */
     public void updateXP(double xp) {
         this.farmerXP.setText("XP: " + xp);
     }
 
+    /* This methodd updates display of player's current level. */
     public void updateLevel(int level) {
         this.farmerLevel.setText("Level " + level + "          ");
     }

@@ -44,6 +44,7 @@ public class SeedPanel extends JPanel {
         seeds.setVerticalAlignment(JLabel.CENTER);
         seeds.setHorizontalAlignment(JLabel.CENTER);
 
+        /* Gets the file path of the seed assets */
         try {
 
             turnipImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/1.png"));
@@ -56,10 +57,9 @@ public class SeedPanel extends JPanel {
             appleImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/8.png"));
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        /* set turnip attributes and assets */
         turnip.setIcon(new ImageIcon(turnipImage));
         turnip.setBorder(BorderFactory.createEmptyBorder());
         turnip.setContentAreaFilled(false);
@@ -70,6 +70,7 @@ public class SeedPanel extends JPanel {
         turnip.setFont(new Font("Google Sans", Font.BOLD, 1));
         turnip.setForeground(new Color(0xA4BE7B));
 
+        /* set carrot attributes and assets */
         carrot.setIcon(new ImageIcon(carrotImage));
         carrot.setBorder(BorderFactory.createEmptyBorder());
         carrot.setContentAreaFilled(false);
@@ -80,6 +81,7 @@ public class SeedPanel extends JPanel {
         carrot.setFont(new Font("Google Sans", Font.BOLD, 1));
         carrot.setForeground(new Color(0xA4BE7B));
 
+        /* set potato attributes and assets */
         potato.setIcon(new ImageIcon(potatoImage));
         potato.setBorder(BorderFactory.createEmptyBorder());
         potato.setContentAreaFilled(false);
@@ -90,6 +92,7 @@ public class SeedPanel extends JPanel {
         potato.setFont(new Font("Google Sans", Font.BOLD, 1));
         potato.setForeground(new Color(0xA4BE7B));
 
+        /* set rose attributes and assets */
         rose.setIcon(new ImageIcon(roseImage));
         rose.setBorder(BorderFactory.createEmptyBorder());
         rose.setContentAreaFilled(false);
@@ -100,6 +103,7 @@ public class SeedPanel extends JPanel {
         rose.setFont(new Font("Google Sans", Font.BOLD, 1));
         rose.setForeground(new Color(0xA4BE7B));
 
+        /* set sunflower attributes and assets */
         sunflower.setIcon(new ImageIcon(sunflowerImage));
         sunflower.setBorder(BorderFactory.createEmptyBorder());
         sunflower.setContentAreaFilled(false);
@@ -110,6 +114,7 @@ public class SeedPanel extends JPanel {
         sunflower.setFont(new Font("Google Sans", Font.BOLD, 1));
         sunflower.setForeground(new Color(0xA4BE7B));
 
+        /* set tulip attributes and assets */
         tulips.setIcon(new ImageIcon(tulipImage));
         tulips.setBorder(BorderFactory.createEmptyBorder());
         tulips.setContentAreaFilled(false);
@@ -120,6 +125,7 @@ public class SeedPanel extends JPanel {
         tulips.setFont(new Font("Google Sans", Font.BOLD, 1));
         tulips.setForeground(new Color(0xA4BE7B));
 
+        /* set mango attributes and assets */
         mango.setIcon(new ImageIcon(mangoImage));
         mango.setBorder(BorderFactory.createEmptyBorder());
         mango.setContentAreaFilled(false);
@@ -130,6 +136,7 @@ public class SeedPanel extends JPanel {
         mango.setFont(new Font("Google Sans", Font.BOLD, 1));
         mango.setForeground(new Color(0xA4BE7B));
 
+        /* set apple attributes and assets */
         apple.setIcon(new ImageIcon(appleImage));
         apple.setBorder(BorderFactory.createEmptyBorder());
         apple.setContentAreaFilled(false);
@@ -151,38 +158,74 @@ public class SeedPanel extends JPanel {
 
     }
 
+    /*
+     * This method returns the intialized
+     * turnip seed button.
+     */
     public JButton getTurnip() {
         return turnip;
     }
 
+    /*
+     * This method returns the intialized
+     * carrot seed button.
+     */
     public JButton getCarrot() {
         return carrot;
     }
 
+    /*
+     * This method returns the intialized
+     * potato seed button.
+     */
     public JButton getPotato() {
         return potato;
     }
 
+    /*
+     * This method returns the intialized
+     * rose seed button.
+     */
     public JButton getRose() {
         return rose;
     }
 
+    /*
+     * This method returns the intialized
+     * sunflower seed button.
+     */
     public JButton getSunflower() {
         return sunflower;
     }
 
+    /*
+     * This method returns the intialized
+     * tulips seed button.
+     */
     public JButton getTulips() {
         return tulips;
     }
 
+    /*
+     * This method returns the intialized
+     * mango seed button.
+     */
     public JButton getMango() {
         return mango;
     }
 
+    /*
+     * This method returns the intialized
+     * apple seed button.
+     */
     public JButton getApple() {
         return apple;
     }
 
+    /*
+     * This method enables all the
+     * buttons initialized in the subpanel.
+     */
     public void setSeedsEnabled(boolean enabled) {
         turnip.setEnabled(enabled);
         carrot.setEnabled(enabled);

@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.image.*;
 import javax.imageio.*;
 import java.io.IOException;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionListener;
 
 public class UpgradePanel extends JPanel {
 
@@ -30,6 +28,7 @@ public class UpgradePanel extends JPanel {
 
     }
 
+    /* This method initializes all attributes needed for upgrade panel. */
     private void init() {
         JLabel upgrade = new JLabel("Farmer Upgrade");
         upgrade.setForeground(Color.WHITE);
@@ -40,7 +39,7 @@ public class UpgradePanel extends JPanel {
     }
 
     private void addButtons() {
-
+        /* Retrieves file path of upgrade button assets */
         try {
 
             regImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/registered.png"));
@@ -48,11 +47,10 @@ public class UpgradePanel extends JPanel {
             legImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/legendary.png"));
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        /* Registered Farmer */
+        /* Assets for Registered Farmer */
         regFarmer.setIcon(new ImageIcon(regImage));
         regFarmer.setBorder(BorderFactory.createEmptyBorder());
         regFarmer.setContentAreaFilled(false);
@@ -62,7 +60,7 @@ public class UpgradePanel extends JPanel {
         regFarmer.setFont(new Font("Google Sans", Font.BOLD, 1));
         regFarmer.setForeground(new Color(0xA4BE7B));
 
-        /* Distinguished Farmer */
+        /* Assets for Distinguished Farmer */
         disFarmer.setIcon(new ImageIcon(disImage));
         disFarmer.setBorder(BorderFactory.createEmptyBorder());
         disFarmer.setContentAreaFilled(false);
@@ -72,7 +70,7 @@ public class UpgradePanel extends JPanel {
         disFarmer.setFont(new Font("Google Sans", Font.BOLD, 1));
         disFarmer.setForeground(new Color(0xA4BE7B));
 
-        /* Legendary Farmer */
+        /* Assets for Legendary Farmer */
         legFarmer.setIcon(new ImageIcon(legImage));
         legFarmer.setBorder(BorderFactory.createEmptyBorder());
         legFarmer.setContentAreaFilled(false);
@@ -87,32 +85,50 @@ public class UpgradePanel extends JPanel {
         this.add(legFarmer);
     }
 
+    /*
+     * This method returns the initialized
+     * registered farmer button.
+     */
     public JButton getReg() {
         return regFarmer;
     }
 
+    /*
+     * This method returns the initialized
+     * distinguished farmer button.
+     */
     public JButton getDis() {
         return disFarmer;
     }
 
+    /*
+     * This method returns the initialized
+     * legendary farmer button.
+     */
     public JButton getLeg() {
         return legFarmer;
     }
 
-    public void setActionListener(ActionListener listener) {
-        regFarmer.addActionListener(listener);
-        disFarmer.addActionListener(listener);
-        legFarmer.addActionListener(listener);
-    }
-
+    /*
+     * This method enables the initialized
+     * registered farmer button.
+     */
     public void setRegEnabled(boolean enabled) {
         regFarmer.setEnabled(enabled);
     }
 
+    /*
+     * This method enables the initialized
+     * distinguished farmer button.
+     */
     public void setDisEnabled(boolean enabled) {
         disFarmer.setEnabled(enabled);
     }
 
+    /*
+     * This method enables the initialized
+     * legendary farmer button.
+     */
     public void setLegEnabled(boolean enabled) {
         legFarmer.setEnabled(enabled);
     }

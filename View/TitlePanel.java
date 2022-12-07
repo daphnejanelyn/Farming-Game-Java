@@ -9,9 +9,13 @@ public class TitlePanel extends JPanel {
     public TitlePanel() {
         this.setBackground(new Color(0xF6FBF4));
         this.setPreferredSize(new Dimension(1000, 30));
-        // setText();
         this.setVisible(true);
     }
+
+    /*
+     * Display prompt in title panel depending
+     * on the status of tile status.
+     */
 
     public void displayPrompt(String status) {
 
@@ -137,9 +141,15 @@ public class TitlePanel extends JPanel {
         }
     }
 
+    /* This method hides visible prompt. */
     public void hidePrompt() {
         prompt.setText("");
     }
+
+    /*
+     * This method displays products produced
+     * and final harvest price of the crop
+     */
 
     public void harvestPrompt(int products, double harvestPrice) {
         prompt.setText("Products: " + products + "          Harvest Price: " + harvestPrice);
@@ -150,6 +160,5 @@ public class TitlePanel extends JPanel {
         prompt.setVisible(true);
 
     }
-    /* include progress bar for level */
 
 }

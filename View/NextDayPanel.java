@@ -22,6 +22,7 @@ public class NextDayPanel extends JPanel {
         this.setVisible(true);
     }
 
+    /* Initalize next day button in the subpanel */
     private void addButtons() {
 
         try {
@@ -29,10 +30,9 @@ public class NextDayPanel extends JPanel {
             nextDayImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/next-day.png"));
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        /* set attributes of next day button */
         nextDay.setIcon(new ImageIcon(nextDayImage));
         nextDay.setBorder(BorderFactory.createEmptyBorder());
         nextDay.setContentAreaFilled(false);
@@ -45,6 +45,7 @@ public class NextDayPanel extends JPanel {
         this.add(nextDay);
     }
 
+    /* This method returns the button initialized. */
     public JButton getNextDayButton() {
         return this.nextDay;
     }

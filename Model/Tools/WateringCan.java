@@ -1,10 +1,15 @@
 package Model.Tools;
 
-import Model.Farmtile;
 import Model.Level;
 import Model.ObjectCoin;
 
 public class WateringCan extends Tools {
+
+    /**
+     * This constructor initializes the amount of money
+     * needed and experience gained when using the
+     * watering can.
+     */
 
     public WateringCan() {
         super(0, 0.5);
@@ -13,7 +18,6 @@ public class WateringCan extends Tools {
     /**
      * This method allows the tile or plant to be watered.
      * 
-     * @param Tile   designated tile to use watering can
      * @param amount current number of ObjectCoins
      * @param level  current level of the player
      */

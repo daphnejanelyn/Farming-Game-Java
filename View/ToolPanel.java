@@ -14,7 +14,6 @@ public class ToolPanel extends JPanel {
     private JButton shovel = new JButton("Shovel");
     private JButton pickaxe = new JButton("PickAxe");
     private JButton harvest = new JButton("Harvest");
-    // add JButton for proceeding to next day
 
     BufferedImage plowImage;
     BufferedImage waterImage;
@@ -28,24 +27,19 @@ public class ToolPanel extends JPanel {
         this.setBackground(new Color(0xA4BE7B));
         this.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         this.setPreferredSize(new Dimension(160, 250));
-        init();
         addButtons();
         this.setVisible(true);
 
     }
 
-    private void init() {
-        // JLabel tool = new JLabel("Tools");
-        // // LABEL ALIGNMENTS
-        // tool.setForeground(Color.WHITE);
-        // tool.setFont(new Font("Google Sans", Font.BOLD, 15));
-        // tool.setVerticalAlignment(JLabel.CENTER);
-        // tool.setHorizontalAlignment(JLabel.CENTER);
-        // this.add(tool);
-    }
+    /*
+     * This method adds all initalized buttons for all tools
+     * in the subpanel.
+     */
 
     private void addButtons() {
 
+        /* Gets the file path of tool image assets */
         try {
 
             plowImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/plow-tool.png"));
@@ -56,7 +50,6 @@ public class ToolPanel extends JPanel {
             harvestImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/harvest.png"));
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -129,46 +122,90 @@ public class ToolPanel extends JPanel {
 
     }
 
+    /*
+     * This method returns the initailized
+     * plowing tool button.
+     */
     public JButton getPlow() {
         return plow;
     }
 
+    /*
+     * This method returns the initialized
+     * watering can button.
+     */
     public JButton getWater() {
         return water;
     }
 
+    /*
+     * This method returns the initialized
+     * fertilizer tool button.
+     */
     public JButton getFertilizer() {
         return fertilizer;
     }
 
+    /*
+     * This method returns the initialized
+     * shovel tool button.
+     */
     public JButton getShovel() {
         return shovel;
     }
 
+    /*
+     * This method returns the initialized
+     * pickaxe tool button.
+     */
     public JButton getPickAxe() {
         return pickaxe;
     }
 
+    /*
+     * This method returns the initialized
+     * harvest tool button.
+     */
     public JButton getHarvest() {
         return harvest;
     }
 
+    /*
+     * This method enables the initialized
+     * plowing tool button.
+     */
     public void setPlowEnabled(boolean enabled) {
         plow.setEnabled(enabled);
     }
 
+    /*
+     * This method enables the initialized
+     * watering can button.
+     */
     public void setWaterEnabled(boolean enabled) {
         water.setEnabled(enabled);
     }
 
+    /*
+     * This method enables the initialized
+     * shovel tool button.
+     */
     public void setShovelEnabled(boolean enabled) {
         shovel.setEnabled(enabled);
     }
 
+    /*
+     * This method enables the initialized
+     * fertilizer tool button.
+     */
     public void setFertilizerEnabled(boolean enabled) {
         fertilizer.setEnabled(enabled);
     }
 
+    /*
+     * This method enables the initialized
+     * pickaxe tool button.
+     */
     public void setPickAxeEnabled(boolean enabled) {
         pickaxe.setEnabled(enabled);
     }

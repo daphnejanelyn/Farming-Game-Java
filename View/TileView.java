@@ -30,14 +30,14 @@ public class TileView extends JButton {
     }
 
     public void assignView(String status) {
-
+        /* get the file path of rock image assets */
         try {
             rockedImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/rock-tile.png"));
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
 
+        /* updates tile according to rock status */
         if (status.equals("rocked")) {
             this.setIcon(new ImageIcon(rockedImage));
             this.setBackground(new Color(0x7F462C));
@@ -53,14 +53,17 @@ public class TileView extends JButton {
 
     }
 
+    /* This method atrributes an index to the tile. */
     public void setIndex(int init) {
         this.index = init;
     }
 
+    /* This method gets the index attributed to the tile. */
     public int getIndex() {
         return this.index;
     }
 
+    /* This method updates the tile view depending on the status of the tile. */
     public void updateView(String status) {
         try {
             plowedImage = ImageIO.read(getClass().getResourceAsStream("../resources/buttons/plowed-tile.png"));
@@ -70,7 +73,6 @@ public class TileView extends JButton {
             e.printStackTrace();
         }
 
-        // change color if it is plowed
         if (status.equals("plowed")) {
             this.setIcon(new ImageIcon(plowedImage));
             this.setBorder(BorderFactory.createEmptyBorder());
@@ -107,6 +109,11 @@ public class TileView extends JButton {
 
     }
 
+    /*
+     * This method updates the view of the tile
+     * once there is a plant planted on the tile.
+     */
+
     public void updateViewtoPlant(String crop, int startday, int currentday, int finalday) {
         try {
             seedImage = ImageIO.read(getClass().getResourceAsStream("../resources/crops/seeds.png"));
@@ -123,6 +130,12 @@ public class TileView extends JButton {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        /*
+         * conditions to change the view of the plant
+         * according to crop name and status of the crop
+         */
+
         if (startday == currentday || currentday < finalday) {
             this.setIcon(new ImageIcon(seedImage));
             this.setBorder(BorderFactory.createEmptyBorder());

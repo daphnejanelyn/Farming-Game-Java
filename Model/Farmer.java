@@ -1,3 +1,12 @@
+/** <b> This program, MyFarm, is a farming simulation game. </b>
+ * <p>
+ * There is 1 player, the Farmer, who carries out various farming tasks.
+ * The Farmer <b> possesses money </b> to utilize throughout the simulation.
+ * The Farmer also <b> gains income and experience from accomplishing farming tasks </b>.
+ * <p>
+ * Date Last Modified: 12/10/2022
+ * @author Daphne Go and Patricia Arao
+ */
 package Model;
 
 import Model.Crops.*;
