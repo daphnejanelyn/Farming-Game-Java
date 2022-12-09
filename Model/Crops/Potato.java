@@ -1,5 +1,9 @@
 package Model.Crops;
 
+/**
+ * This class initializes all attributes of a potato crop.
+ */
+
 public class Potato extends Crop {
     /**
      * This constructor initializes all attributes of crop Potato.

@@ -1,9 +1,13 @@
 package Model;
 
+/**
+ * This class initializes the current game level the player is currently in.
+ */
 public class Level {
     private double numberofXP = 0;
     private int levelNumber = 0;
 
+    /** This constructor initializes the player's level. */
     public Level() {
 
     }

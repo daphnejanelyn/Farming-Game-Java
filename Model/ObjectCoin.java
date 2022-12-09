@@ -1,5 +1,9 @@
 package Model;
 
+/**
+ * This class initializes the amount of object coins a player has
+ * to perform farming tasks.
+ */
 public class ObjectCoin {
     private double amount;
 

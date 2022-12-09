@@ -3,6 +3,9 @@ package Model.Tools;
 import Model.Level;
 import Model.ObjectCoin;
 
+/**
+ * This class initializes tool cost and experience gained for pickaxe tool.
+ */
 public class Pickaxe extends Tools {
     /**
      * This constructor initializes the amount of money

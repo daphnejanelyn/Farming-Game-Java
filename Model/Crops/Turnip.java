@@ -1,5 +1,8 @@
 package Model.Crops;
 
+/**
+ * This class initializes all attributes of a turnip crop.
+ */
 public class Turnip extends Crop {
     /**
      * This constructor initializes all attributes of crop Turnip.

@@ -2,6 +2,10 @@ package Model.Crops;
 
 import java.util.Random;
 
+/**
+ * This class initializes all methods needed
+ * to plant and harvest a single seed.
+ */
 public abstract class Crop {
 
     private String name;

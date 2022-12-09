@@ -3,6 +3,10 @@ package Model.Tools;
 import Model.Level;
 import Model.ObjectCoin;
 
+/**
+ * This class initializes tool cost and experience gained for fertilizer tool.
+ */
+
 public class Fertilizer extends Tools {
 
     /**

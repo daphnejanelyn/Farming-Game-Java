@@ -3,6 +3,10 @@ package Model.Tools;
 import Model.Level;
 import Model.ObjectCoin;
 
+/**
+ * This class initializes all methods, cost, and experience gained from using a tool.
+ */
+
 public abstract class Tools {
 
     private double cost;

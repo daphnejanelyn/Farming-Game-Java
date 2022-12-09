@@ -2,7 +2,9 @@ package Model.Tools;
 
 import Model.Level;
 import Model.ObjectCoin;
-
+/**
+ * This class initializes tool cost and experience gained for watering can.
+ */
 public class WateringCan extends Tools {
 
     /**

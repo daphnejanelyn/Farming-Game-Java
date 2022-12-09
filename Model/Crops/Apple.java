@@ -1,5 +1,9 @@
 package Model.Crops;
 
+/**
+ * This class initializes all attributes of an apple crop.
+ */
+
 public class Apple extends Crop {
     /**
      * This constructor initializes all attributes of crop Apple.

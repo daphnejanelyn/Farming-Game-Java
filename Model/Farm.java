@@ -3,6 +3,9 @@ package Model;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This class initializes the status of the farm lot according to player's actions.
+ */
 public class Farm {
 
     ArrayList<Farmtile> tiles = new ArrayList<Farmtile>();

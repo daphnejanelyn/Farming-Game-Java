@@ -1,5 +1,8 @@
 package Model.Crops;
 
+/**
+ * This class initializes all attributes of a mango crop.
+ */
 public class Mango extends Crop {
     /**
      * This constructor initializes all attributes of crop Mango.

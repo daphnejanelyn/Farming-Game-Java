@@ -2,6 +2,9 @@ package Model;
 
 import Model.Crops.*;
 
+/**
+ * This class initializes the status of a single tile based on player's actions.
+ */
 public class Farmtile {
 
     private int index;
@@ -14,6 +17,8 @@ public class Farmtile {
     private boolean withered = false;
     private boolean cleaned;
     private int day = 0;
+
+    /** This constructor initializes a specific tile in a farm lot */
 
     public Farmtile() {
 
